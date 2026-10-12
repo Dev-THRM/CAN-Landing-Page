@@ -1,9 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Outfit', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
   --font-display: 'Syne', sans-serif;
   --font-pixel: 'Silkscreen', 'VT323', monospace;
+}
+
+.font-normal-heading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.blend-screen {
+  mix-blend-mode: screen;
+  -webkit-mix-blend-mode: screen;
 }
 
 @keyframes scan-line {
