@@ -357,15 +357,15 @@ const Technology = () => {
       </section>
 
       {/* SUBSCRIBE TO NEWS SECTION */}
-      <section className="newsletter-section py-32 sm:py-40 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#0c0d12] relative overflow-hidden border-t border-white/5">
+      {/* <section className="newsletter-section py-32 sm:py-40 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#0c0d12] relative overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto w-full relative">
           <div className="newsletter-card relative rounded-[40px] md:rounded-[48px] bg-gradient-to-br from-[#121622]/95 via-[#0b0e17]/95 to-[#06080e]/98 border border-white/10 p-10 sm:p-16 lg:p-24 overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.9)] backdrop-blur-2xl flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-20 w-full">
-            {/* Ambient glows */}
+            {/* Ambient glows *
             <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent pointer-events-none"></div>
             <div className="absolute -top-32 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none"></div>
             <div className="absolute -bottom-32 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none"></div>
 
-            {/* Left Content */}
+            {/* Left Content *
             <div className="flex-1 text-left max-w-2xl relative z-10" style={{ perspective: '1000px' }}>
               <div className="anim-text w-fit">
                 <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-4 py-2 rounded-full backdrop-blur-sm mb-8 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
@@ -382,7 +382,7 @@ const Technology = () => {
               </p>
             </div>
 
-            {/* Right Content */}
+            {/* Right Content *
             <div className="anim-text flex-[0.9] w-full max-w-lg relative z-10">
               <form onSubmit={handleSubscribe} className="flex flex-col gap-5 w-full">
                 <div className="relative group">
@@ -424,7 +424,7 @@ const Technology = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
