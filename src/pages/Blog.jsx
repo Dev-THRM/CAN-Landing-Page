@@ -37,7 +37,7 @@ const Blog = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
             {blogPosts.map((post) => (
-              <Link to={`/blog/${post.id}`} key={post.id} className="group block rounded-[28px] sm:rounded-[32px] overflow-hidden bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-cyan-500/40 transition-all duration-500 flex flex-col justify-between shadow-xl hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(34,211,238,0.15)] interactive cursor-pointer p-8 sm:p-10 lg:p-12 h-full">
+              <Link to={`/blog/${post.slug || post.id}`} key={post.id} className="group block rounded-[28px] sm:rounded-[32px] overflow-hidden bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-cyan-500/40 transition-all duration-500 flex flex-col justify-between shadow-xl hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(34,211,238,0.15)] interactive cursor-pointer p-8 sm:p-10 lg:p-12 h-full">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-black/60 mb-6 border border-white/5">
                   <img 
                     src={post.image} 
