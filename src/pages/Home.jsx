@@ -18,6 +18,7 @@ import canVue from '../assets/canvue.png';
 import canvueExplodedVideo from '../assets/canvue-exploded.mp4';
 import canvueExplodedPoster from '../assets/canvue-exploded-poster.jpg';
 import { blogPosts } from '../data/blogs';
+import HeroReference from '../components/HeroReference';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,25 +76,8 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState(null);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const videoRef = useRef(null);
-  const mainRef = useRef(null);
   const panelsRef = useRef(null);
   const containerRef = useRef(null);
-
-  const toggleVideoPlay = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsVideoPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsVideoPlaying(false);
-      }
-    }
-  };
 
   useEffect(() => {
     if (loading) return;
@@ -198,115 +182,7 @@ const Home = () => {
       {loading && <Loader setLoading={setLoading} />}
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[92vh] flex items-center justify-center pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden bg-black">
-        {/* Subtle Far-Left Ambient Glow behind Text Only (Fades to 100% Black before video) */}
-        <div className="absolute top-1/3 left-0 w-[450px] h-[450px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none"></div>
-
-        <div className="relative z-10 w-full max-w-[1900px] mx-auto px-6 sm:px-10 md:px-12 lg:px-12 xl:px-14 grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-6 xl:gap-8">
-
-          {/* ── LEFT: Text Column (Ample breathing room, perfectly formatted typography) ── */}
-          <div className="lg:col-span-5 xl:col-span-4 flex flex-col items-start text-left w-full z-20">
-
-            {/* Eyebrow badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-            >
-              <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm mb-6 font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
-                Architectural Digital Signage
-              </span>
-            </motion.div>
-
-            {/* Main heading — normal and bold font */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="font-normal-heading font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[68px] xl:text-[78px] leading-[0.98] text-white tracking-tight mb-6"
-            >
-              CAN<br />SIGNAGE
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="text-base sm:text-lg text-gray-300 leading-relaxed font-normal max-w-md mb-8"
-            >
-              Architectural-grade digital signage that blends hardware, perception, and intelligence into one seamless experience.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={!loading ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap items-center gap-4"
-            >
-              <a
-                href="/technology"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-sm tracking-wide transition-all duration-300 shadow-[0_0_25px_rgba(34,211,238,0.4)] hover:shadow-[0_0_35px_rgba(34,211,238,0.6)] cursor-pointer"
-              >
-                Explore Products <ArrowRight size={16} />
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-semibold text-sm tracking-wide border border-white/15 hover:border-white/30 transition-all duration-300 cursor-pointer"
-              >
-                Get In Touch
-              </a>
-            </motion.div>
-          </div>
-
-          {/* ── RIGHT: Video Column (Enlarged and Dramatic, Full Frame Showing All Technical Blueprint Labels) ── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98, x: 30 }}
-            animate={!loading ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0.98, x: 30 }}
-            transition={{ duration: 1.2, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 xl:col-span-8 w-full relative flex items-center justify-center z-10"
-          >
-            {/* Seamless, unclipped video container preserving the full 16:9 canvas */}
-            <div className="relative w-full aspect-video flex items-center justify-center">
-              <video
-                ref={videoRef}
-                src={canvueExplodedVideo}
-                poster={canvueExplodedPoster}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto max-h-[86vh] lg:max-h-[92vh] xl:max-h-[96vh] object-contain object-center scale-[1.06] sm:scale-[1.08] lg:scale-[1.10] xl:scale-[1.12] transform origin-center transition-all duration-700 pointer-events-auto filter drop-shadow-[0_20px_50px_rgba(34,211,238,0.25)] drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
-              />
-
-              {/* Floating Play / Pause Control */}
-              <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20">
-                <button
-                  type="button"
-                  onClick={toggleVideoPlay}
-                  aria-label={isVideoPlaying ? 'Pause Video' : 'Play Video'}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 hover:bg-black/90 border border-white/20 hover:border-cyan-400/60 text-white text-xs font-medium tracking-wider backdrop-blur-md transition-all duration-300 shadow-xl cursor-pointer interactive group/btn"
-                >
-                  {isVideoPlaying ? (
-                    <>
-                      <Pause size={13} className="text-cyan-400" />
-                      <span className="text-[11px] text-gray-300 group-hover/btn:text-white">Pause</span>
-                    </>
-                  ) : (
-                    <>
-                      <Play size={13} className="text-cyan-400 fill-cyan-400" />
-                      <span className="text-[11px] text-gray-300 group-hover/btn:text-white">Play Loop</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
+      <HeroReference />
 
 
       {/* PROTOCOL SECTION */}
