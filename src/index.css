@@ -207,10 +207,15 @@ ul {
   font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-nav-primary:hover {
   background: #145cb0;
+  color: white;
 }
 
 /* Main Content */

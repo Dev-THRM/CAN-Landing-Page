@@ -125,7 +125,7 @@ export const DisplayTechSection = () => {
           <FadeInText direction="right">
           <Zap style={{ color: "#3b82f6", marginBottom: "1.5rem" }} size={40} />
             <p className="tech-description">
-              <strong className="text-white">Dynamic Contrast and an IPS Panel Toughened glass</strong> with a viewing angle of 178 degrees. Standard 1080p High Definition screens available in 32", 43", and 4K screens in 55", and above sizes to provide a clear, crisp image.
+              <strong className="text-white">Dynamic Contrast and an IPS Panel Toughened glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K screens in 43" and above sizes to provide a clear, crisp image.
             </p>
           </FadeInText>
         </motion.div>
@@ -367,13 +367,16 @@ export const ControlCenterSection = () => {
           </FadeInText>
 
           <FadeInText delay={0.5}>
-            <motion.button 
-              className="btn-download"
+            <motion.a 
+              href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-download inline-flex items-center gap-2"
               whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.4)" }}
               whileTap={{ scale: 0.95 }}
             >
-              DOWNLOAD APK <ArrowRight size={18} />
-            </motion.button>
+              DOWNLOAD APP <ArrowRight size={18} />
+            </motion.a>
           </FadeInText>
         </div>
 

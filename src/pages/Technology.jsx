@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, CheckCircle, Smartphone, MonitorSmartphone, Airplay } from 'lucide-react';
+import { ArrowRight, CheckCircle, Smartphone, MonitorSmartphone, Airplay, Maximize2, X, Check, Eye, Sparkles } from 'lucide-react';
 import cantechno from '../assets/cantechno.jpg';
-import canfashion from '../assets/canfashion.jpg';
-import canpizzamenu from '../assets/canpizzamenu.jpg';
+import canOrientationPortrait from '../assets/can-orientation-portrait.jpg';
+import canOrientationLandscape from '../assets/can-orientation-landscape.jpg';
 import remote from '../assets/remote.jpg';
 import iqscreens from '../assets/iqscreens.jpg';
 
@@ -15,6 +15,7 @@ const Technology = () => {
   const containerRef = useRef(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [fullscreenImage, setFullscreenImage] = useState(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -64,14 +65,10 @@ const Technology = () => {
         { y: 0, opacity: 1, rotationY: 0, rotationX: 0, scale: 1, duration: 1.8, delay: 0.15, ease: 'expo.out', scrollTrigger: { trigger: '.cards-container', start: 'top 80%' }}
       );
 
-      // 5. Versatility Image Clash (Elastic collision from sides)
-      gsap.fromTo('.parallax-img-1',
-        { x: -300, rotation: -25, opacity: 0, scale: 0.5 },
-        { x: 0, rotation: 0, opacity: 1, scale: 1, duration: 2.5, ease: 'elastic.out(1, 0.6)', scrollTrigger: { trigger: '.versatility-section', start: 'top 75%' } }
-      );
-      gsap.fromTo('.parallax-img-2',
-        { x: 300, rotation: 25, opacity: 0, scale: 0.5 },
-        { x: 0, rotation: 0, opacity: 1, scale: 1, duration: 2.5, delay: 0.2, ease: 'elastic.out(1, 0.6)', scrollTrigger: { trigger: '.versatility-section', start: 'top 75%' } }
+      // 5. Versatility Orientation Cards Reveal
+      gsap.fromTo('.orientation-card',
+        { y: 60, opacity: 0, scale: 0.96 },
+        { y: 0, opacity: 1, scale: 1, duration: 1.2, stagger: 0.2, ease: 'power3.out', scrollTrigger: { trigger: '.versatility-section', start: 'top 75%' } }
       );
       
       // Massive Background Text Scrubbing
@@ -81,19 +78,14 @@ const Technology = () => {
         scrollTrigger: { trigger: '.versatility-section', start: 'top bottom', end: 'bottom top', scrub: 1 }
       });
 
-      // 6. Remote Control Massive Shrink Reveal
-      gsap.fromTo('.remote-float',
-        { scale: 4, rotationZ: 45, opacity: 0, filter: 'blur(30px)', y: -300 },
+      // 6. Remote Control Clean Grounded Reveal (No flying or rotation)
+      gsap.fromTo('.remote-card',
+        { y: 60, opacity: 0, scale: 0.98 },
         { 
-          scale: 1, rotationZ: -3, opacity: 1, filter: 'blur(0px)', y: 0, duration: 2.5, ease: 'expo.out',
-          scrollTrigger: { trigger: '.remote-float', start: 'top 80%' }
+          y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out',
+          scrollTrigger: { trigger: '.remote-card', start: 'top 80%' }
         }
       );
-      
-      // Continuous float after reveal
-      gsap.to('.remote-float', {
-        y: -15, rotationZ: -1, duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2.5
-      });
 
       // 7. IQ World Complex 3D Turn
       gsap.fromTo('.iq-img-container',
@@ -193,7 +185,7 @@ const Technology = () => {
                  Resolution <span className="font-bold text-cyan-400">Redefined</span>
               </h3>
               <p className="text-gray-400 leading-relaxed text-base sm:text-lg font-light">
-                Elevate your viewing experience with IPS Panel's HD brilliance or dive into the future with 4K resolution support, exclusively available in our 50", 55" and above screen sizes. CAN Display ensures every detail is brought to life on your screen.
+                Elevate your viewing experience with IPS Panel's HD brilliance or dive into the future with 4K resolution support, available in our 43" and above screen sizes. CAN Display ensures every detail is brought to life on your screen.
               </p>
             </motion.div>
             
@@ -217,91 +209,388 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* VERSATILITY IN ORIENTATION */}
-      <section className="versatility-section py-24 md:py-40 px-6 sm:px-12 md:px-20 lg:px-32 bg-[#06070a] relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-blue-600/5 blur-[180px] rounded-full pointer-events-none -translate-y-1/2"></div>
-        <div className="bg-text-scroll absolute text-[25vw] font-black text-white/[0.02] whitespace-nowrap top-1/4 left-0 pointer-events-none select-none tracking-tighter">VERSATILITY IN EVERY ANGLE</div>
+      {/* VERSATILITY IN ORIENTATION - REDESIGNED HERO SHOWCASE */}
+      <section className="versatility-section py-20 md:py-32 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#06070a] relative overflow-hidden border-t border-white/5">
+        {/* Ambient atmospheric glows */}
+        <div className="absolute top-1/4 left-1/4 w-[700px] h-[700px] bg-blue-600/10 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-cyan-500/10 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="bg-text-scroll absolute text-[18vw] font-black text-white/[0.015] whitespace-nowrap top-12 left-0 pointer-events-none select-none tracking-tighter">
+          VERSATILITY IN EVERY ANGLE
+        </div>
         
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          {/* Overlapping Images Layout */}
-          <div className="w-full lg:w-1/2 relative h-[500px] sm:h-[700px] lg:h-[800px]">
-            <div className="absolute top-0 left-0 w-[65%] h-[65%] rounded-[32px] sm:rounded-[40px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-10 parallax-img-1 group">
-              <img src={canfashion} alt="Vertical Display in Store" className="w-full h-full object-cover mix-blend-screen scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none opacity-80"></div>
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                 <span className="px-4 py-2 bg-black/40 backdrop-blur-xl rounded-full text-xs font-bold text-white border border-white/10 uppercase tracking-widest shadow-xl">Portrait</span>
-                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 backdrop-blur-md">
-                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="6" y="2" width="12" height="20" rx="2"/></svg>
-                 </div>
-              </div>
-            </div>
-            
-            <div className="absolute bottom-0 right-0 w-[70%] h-[55%] rounded-[32px] sm:rounded-[40px] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.9)] z-20 parallax-img-2 group">
-              <img src={canpizzamenu} alt="Horizontal Menu Display" className="w-full h-full object-cover mix-blend-screen scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none opacity-80"></div>
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                 <span className="px-4 py-2 bg-black/40 backdrop-blur-xl rounded-full text-xs font-bold text-white border border-white/10 uppercase tracking-widest shadow-xl">Landscape</span>
-                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 backdrop-blur-md">
-                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
-                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full lg:w-1/2 p-8 sm:p-12 lg:p-16 rounded-[40px] bg-white/[0.02] border border-white/5 backdrop-blur-3xl shadow-2xl" style={{ perspective: '1000px' }}>
-            <div className="anim-text w-fit">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.22em] uppercase text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm mb-6 shadow-[0_0_8px_#60a5fa]">
-                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-                 ADAPTABILITY
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Section Header */}
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <div className="anim-text">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-4 py-1.5 rounded-full backdrop-blur-sm mb-6 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                DUAL ORIENTATION FLEXIBILITY
               </span>
             </div>
-            <h3 className="anim-text text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white mb-8">
-              Versatility in <br/><span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Orientation</span>
-            </h3>
-            <p className="anim-text text-lg sm:text-xl text-gray-400 leading-relaxed font-light">
-              Choose your style with CAN Display - available in both vertical and horizontal orientations. Tailor your visual setup to match your unique space and preferences seamlessly.
+            
+            <h2 className="anim-text text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-white mb-6 leading-tight">
+              Versatility in <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300">Orientation</span>
+            </h2>
+            
+            <p className="anim-text text-base sm:text-lg text-gray-300 leading-relaxed font-light mb-8 max-w-2xl">
+              Engineered for seamless commercial versatility. Deploy CAN displays horizontally for high-impact menu boards, dashboards, and video walls — or vertically for elegant floor standees, retail showcases, and directory kiosks.
             </p>
+
+          </div>
+
+          {/* Cards Showcase Grid - Side-by-Side Dual View */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            {/* 1. PORTRAIT CARD */}
+            <div className="orientation-card flex flex-col rounded-3xl bg-[#090b10]/90 border border-white/10 hover:border-cyan-500/40 p-5 sm:p-7 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_20px_50px_rgba(6,182,212,0.15)] group">
+                {/* Card Top Pill Bar */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+                      <div className="w-3.5 h-5 border-2 border-cyan-400 rounded-sm"></div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold tracking-[0.2em] text-cyan-400 uppercase">Vertical Display</div>
+                      <h3 className="text-lg sm:text-xl font-medium text-white">Portrait Orientation</h3>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                      9:16 Standee
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setFullscreenImage({ src: canOrientationPortrait, title: 'Portrait Floor Standee in Retail Boutique', orientation: 'Portrait' })}
+                      className="w-8 h-8 rounded-full border border-white/10 bg-white/5 hover:bg-cyan-500/20 flex items-center justify-center text-gray-400 hover:text-white transition-colors cursor-pointer"
+                      title="Inspect full screen"
+                    >
+                      <Maximize2 size={13} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Physical Display Enclosure / Screen Container */}
+                <div className="relative rounded-2xl p-2.5 sm:p-3 bg-gradient-to-b from-[#141824] to-[#0a0d14] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_15px_35px_rgba(0,0,0,0.9)] mb-6">
+                  {/* Subtle Bezel Status Bar */}
+                  <div className="flex items-center justify-between px-3 py-1.5 mb-2 text-[10px] text-gray-400 tracking-wider">
+                    <span className="flex items-center gap-1.5 text-cyan-300 font-mono">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                      LIVE CAN DISPLAY
+                    </span>
+                    <span className="text-gray-500 font-mono">STAND / FLOOR KIOSK</span>
+                  </div>
+
+                  {/* 16:9 Aspect Viewport - Ensures 100% of the photograph and screen are fully visible without cropping */}
+                  <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black shadow-inner border border-white/5">
+                    <img
+                      src={canOrientationPortrait}
+                      alt="CAN Vertical Portrait Display Standee in Luxury Retail Store"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 block"
+                    />
+
+                    {/* Subtle Glass Glare Accent */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent pointer-events-none"></div>
+
+                    {/* Floating Hotspot Badges on Image */}
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-white tracking-wide shadow-lg flex items-center gap-1.5">
+                        <Sparkles size={11} className="text-cyan-400" />
+                        Retail Boutique Setup
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                      <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-cyan-500/30 text-[11px] font-medium text-cyan-300 tracking-wide shadow-xl">
+                        Freestanding CAN Standee
+                      </span>
+                      <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest shadow-xl">
+                        Eye-Level 9:16
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Use Case & Features Breakdown */}
+                <div className="mt-auto space-y-4">
+                  <p className="text-sm text-gray-300 leading-relaxed font-light">
+                    Engineered to command attention in high-footfall areas. Ideal for fashion boutiques, hotel lobbies, corporate entrances, and interactive wayfinding directories.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-2.5 pt-2">
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Mounting</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-cyan-400" /> A-Frame Floor Stand
+                      </div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Applications</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-cyan-400" /> Retail & Kiosks
+                      </div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Resolution</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-cyan-400" /> FHD / 4K Commercial
+                      </div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Glass & Panel</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-cyan-400" /> Toughened IPS Glass
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {/* 2. LANDSCAPE CARD */}
+            <div className="orientation-card flex flex-col rounded-3xl bg-[#090b10]/90 border border-white/10 hover:border-blue-500/40 p-5 sm:p-7 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] group">
+                {/* Card Top Pill Bar */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                      <div className="w-5 h-3.5 border-2 border-blue-400 rounded-sm"></div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold tracking-[0.2em] text-blue-400 uppercase">Horizontal Display</div>
+                      <h3 className="text-lg sm:text-xl font-medium text-white">Landscape Orientation</h3>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                      16:9 Wall Mount
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setFullscreenImage({ src: canOrientationLandscape, title: 'Landscape Digital Menu Display with 178° Wide Angle', orientation: 'Landscape' })}
+                      className="w-8 h-8 rounded-full border border-white/10 bg-white/5 hover:bg-blue-500/20 flex items-center justify-center text-gray-400 hover:text-white transition-colors cursor-pointer"
+                      title="Inspect full screen"
+                    >
+                      <Maximize2 size={13} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Physical Display Enclosure / Screen Container */}
+                <div className="relative rounded-2xl p-2.5 sm:p-3 bg-gradient-to-b from-[#141824] to-[#0a0d14] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_15px_35px_rgba(0,0,0,0.9)] mb-6">
+                  {/* Subtle Bezel Status Bar */}
+                  <div className="flex items-center justify-between px-3 py-1.5 mb-2 text-[10px] text-gray-400 tracking-wider">
+                    <span className="flex items-center gap-1.5 text-blue-300 font-mono">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping"></span>
+                      LIVE CAN DISPLAY
+                    </span>
+                    <span className="text-gray-500 font-mono">WALL MOUNT / MENU BOARD</span>
+                  </div>
+
+                  {/* 16:9 Aspect Viewport - 100% of the screen, pizza menu, CAN logo, and 178° viewing angle callout visible */}
+                  <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black shadow-inner border border-white/5">
+                    <img
+                      src={canOrientationLandscape}
+                      alt="CAN Horizontal Landscape Menu Display in Pizza Restaurant with 178 degree wide viewing angle"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 block"
+                    />
+
+                    {/* Subtle Glass Glare Accent */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent pointer-events-none"></div>
+
+                    {/* Floating Hotspot Badges on Image */}
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-white tracking-wide shadow-lg flex items-center gap-1.5">
+                        <Sparkles size={11} className="text-blue-400" />
+                        Restaurant Digital Menu
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                      <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-blue-500/30 text-[11px] font-medium text-blue-300 tracking-wide shadow-xl">
+                        178° Wide Viewing Angle
+                      </span>
+                      <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest shadow-xl">
+                        Panoramic 16:9
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Use Case & Features Breakdown */}
+                <div className="mt-auto space-y-4">
+                  <p className="text-sm text-gray-300 leading-relaxed font-light">
+                    Built for expansive horizontal visibility in fast-casual restaurants, bars, meeting rooms, and command centers. Features an ultra-wide 178° viewing angle so menus are crystal clear from any vantage point.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-2.5 pt-2">
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Mounting</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-blue-400" /> VESA Wall / Ceiling
+                      </div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Viewing Angle</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-blue-400" /> 178° IPS Uniformity
+                      </div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Content Format</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-blue-400" /> Dynamic Menu Boards
+                      </div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Duty Cycle</div>
+                      <div className="text-xs font-medium text-white flex items-center gap-1.5">
+                        <Check size={12} className="text-blue-400" /> 24/7 Commercial Grade
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
+
+        {/* Fullscreen Image Lightbox Modal */}
+        <AnimatePresence>
+          {fullscreenImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setFullscreenImage(null)}
+              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8 cursor-zoom-out"
+            >
+              <div 
+                className="relative max-w-6xl w-full bg-[#0d1017] border border-white/20 rounded-3xl overflow-hidden shadow-2xl cursor-default"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10 bg-black/40">
+                  <div className="flex items-center gap-3">
+                    <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono font-bold uppercase">
+                      {fullscreenImage.orientation}
+                    </span>
+                    <h4 className="text-base sm:text-lg font-medium text-white">{fullscreenImage.title}</h4>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setFullscreenImage(null)}
+                    className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <div className="p-3 sm:p-6 bg-black flex items-center justify-center">
+                  <img
+                    src={fullscreenImage.src}
+                    alt={fullscreenImage.title}
+                    className="max-h-[75vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
-      {/* SLEEK REMOTE CONTROL */}
-      <section className="py-24 md:py-40 px-6 sm:px-12 md:px-20 lg:px-32 bg-[#0c0d12] border-t border-white/5 relative overflow-hidden">
-        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-cyan-500/5 blur-[150px] rounded-full pointer-events-none -translate-y-1/2"></div>
+      {/* SLEEK REMOTE CONTROL - GROUNDED SHOWCASE */}
+      <section className="py-20 md:py-32 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#0a0c12] border-t border-white/5 relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 blur-[160px] rounded-full pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-blue-600/5 blur-[160px] rounded-full pointer-events-none"></div>
         
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <div className="order-2 lg:order-1 relative h-[500px] sm:h-[600px] lg:h-[700px] w-full flex items-center justify-center">
-             <div className="absolute inset-0 bg-gradient-to-br from-[#161a29]/50 via-[#0e121d]/50 to-[#06080e]/50 border border-white/10 rounded-[48px] shadow-[0_25px_80px_rgba(0,0,0,0.85)]"></div>
-             <div className="absolute inset-0 bg-radial from-cyan-500/10 via-transparent to-transparent blur-3xl pointer-events-none rounded-[48px]"></div>
-             
-             {/* Floating Remote Card */}
-             <div className="remote-float w-[95%] sm:w-[85%] lg:w-[90%] h-auto relative z-10 rounded-[24px] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.9)] border-2 border-white/10">
-                <img src={remote} alt="Sleek Remote with TV" className="w-full h-auto object-cover block" />
-             </div>
-             
-             {/* Decorative circles */}
-             <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full border border-cyan-500/20 opacity-50"></div>
-             <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full border border-white/5 opacity-50"></div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Grounded Remote Showcase Card */}
+          <div className="order-2 lg:order-1 w-full">
+            <div className="remote-card rounded-3xl bg-[#0e111a] border border-white/10 p-3 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:border-cyan-500/30 transition-all duration-500 group">
+              <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-black shadow-inner border border-white/5">
+                <img 
+                  src={remote} 
+                  alt="CAN Smart Remote Control with Digital Signage Kiosk" 
+                  className="w-full h-full object-cover object-center block transition-transform duration-700 ease-out group-hover:scale-105" 
+                />
+                
+                {/* Subtle glass reflection overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-transparent pointer-events-none"></div>
+                
+                {/* Badges on image */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 text-xs font-semibold text-white tracking-wide shadow-lg flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                    Direct Screen Control
+                  </span>
+                </div>
+                
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-lg bg-black/75 backdrop-blur-md border border-cyan-500/30 text-xs font-medium text-cyan-300 shadow-xl">
+                    Ergonomic Remote
+                  </span>
+                  <span className="px-3 py-1 rounded-lg bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-gray-300 uppercase tracking-widest shadow-xl">
+                    CAN Display & Totem
+                  </span>
+                </div>
+              </div>
+
+              {/* Status bar under image */}
+              <div className="mt-4 pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-3 px-2 text-xs text-gray-400">
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Instant Wireless Pairing
+                </span>
+                <span className="font-mono text-gray-400">IQ WORLD SYNCED</span>
+              </div>
+            </div>
           </div>
           
-          <div className="order-1 lg:order-2 text-left lg:pl-10" style={{ perspective: '1000px' }}>
-            <div className="anim-text flex items-center gap-4 mb-8">
-               <div className="w-16 h-[1px] bg-cyan-500/50"></div>
-               <span className="text-xs font-bold tracking-[0.25em] uppercase text-cyan-400">CONTROL</span>
+          {/* Right Column: Information & Details */}
+          <div className="order-1 lg:order-2 text-left lg:pl-6">
+            <div className="anim-text flex items-center gap-3 mb-6">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.25em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm shadow-[0_0_12px_rgba(6,182,212,0.2)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                INTUITIVE HARDWARE
+              </span>
             </div>
-            <h2 className="anim-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-tight mb-8">
-              Sleek Remote <br/><span className="font-bold">Control</span>
+
+            <h2 className="anim-text text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight mb-6">
+              Sleek Remote <br/><span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Control</span>
             </h2>
-            <p className="anim-text text-lg sm:text-xl text-gray-400 leading-relaxed font-light mb-10">
-              Take command with our sleek remote control, designed for convenience. Operate basic functions effortlessly, ensuring your CAN Display experience is as smooth as the visuals it delivers.
+
+            <p className="anim-text text-base sm:text-lg text-gray-300 leading-relaxed font-light mb-8">
+              Take complete command with our sleek remote control, designed for modern commercial environments. Effortlessly switch input sources, adjust audio and brightness, and navigate IQ World playlists with responsive precision.
             </p>
-            <div className="anim-text flex items-center gap-6">
-               <div className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center backdrop-blur-md hover:bg-cyan-500/20 transition-colors cursor-pointer hover:scale-110 shadow-lg">
-                 <Smartphone className="text-cyan-400" size={24} />
-               </div>
-               <div className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center backdrop-blur-md hover:bg-cyan-500/20 transition-colors cursor-pointer hover:scale-110 shadow-lg">
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-400"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-               </div>
+
+            {/* Feature Highlights Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
+              <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+                <div className="flex items-center gap-2 text-xs font-semibold text-white mb-1">
+                  <Check size={14} className="text-cyan-400 shrink-0" />
+                  Tactile Navigation Pad
+                </div>
+                <p className="text-xs text-gray-400 pl-5">Intuitive 4-way directional control for menus and media apps.</p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+                <div className="flex items-center gap-2 text-xs font-semibold text-white mb-1">
+                  <Check size={14} className="text-cyan-400 shrink-0" />
+                  Dedicated App Shortcut
+                </div>
+                <p className="text-xs text-gray-400 pl-5">Instant access to IQ World digital signage management.</p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+                <div className="flex items-center gap-2 text-xs font-semibold text-white mb-1">
+                  <Check size={14} className="text-cyan-400 shrink-0" />
+                  Long-Range Transmission
+                </div>
+                <p className="text-xs text-gray-400 pl-5">Multi-angle signal coverage for large commercial spaces.</p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+                <div className="flex items-center gap-2 text-xs font-semibold text-white mb-1">
+                  <Check size={14} className="text-cyan-400 shrink-0" />
+                  Ergonomic Matte Finish
+                </div>
+                <p className="text-xs text-gray-400 pl-5">Comfortable handheld grip built for heavy daily use.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -324,9 +613,20 @@ const Technology = () => {
                   Seamless User <br/><span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-400">Experience</span>
                 </h2>
               </div>
-              <p className="anim-text text-lg sm:text-xl text-gray-400 leading-relaxed font-light flex-1 text-left border-l-2 border-fuchsia-500/30 pl-6">
-                Empower yourself with the IQ World app's robust features. Manage screens efficiently with admin control, while clients enjoy a seamless viewing experience. It's control at your fingertips.
-              </p>
+              <div className="flex-1 flex flex-col items-start gap-5 border-l-2 border-fuchsia-500/30 pl-6">
+                <p className="anim-text text-lg sm:text-xl text-gray-400 leading-relaxed font-light text-left">
+                  Empower yourself with the IQ World app's robust features. Manage screens efficiently with admin control, while clients enjoy a seamless viewing experience. It's control at your fingertips.
+                </p>
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="anim-text inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-fuchsia-600/20 hover:bg-fuchsia-500 hover:text-white border border-fuchsia-500/30 hover:border-fuchsia-400 transition-all duration-300 shadow-[0_0_20px_rgba(217,70,239,0.2)]"
+                >
+                  <span>Get IQ World App</span>
+                  <ArrowRight size={14} />
+                </a>
+              </div>
             </div>
 
             <div className="relative mt-16 perspective-1000">

@@ -73,9 +73,16 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
   );
 };
 
+const featureTabs = [
+  { id: 0, number: '01', label: 'Resolution Redefined' },
+  { id: 1, number: '02', label: 'IQ World Control' },
+  { id: 2, number: '03', label: 'Product Lineup' }
+];
+
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState(null);
+  const [activeFeatureTab, setActiveFeatureTab] = useState(0);
   const panelsRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -117,54 +124,6 @@ const Home = () => {
           }
         }
       );
-
-      // Vertical Stacking Cards Scroll Animation: Overlapping & Depth Effect
-      const stackedCards = gsap.utils.toArray('.stacked-card');
-      stackedCards.forEach((card, i) => {
-        const topOffset = 48 + (i * 14); // Refined staggered top offsets: 48px, 62px, 76px
-
-        // Pin each card in place when it reaches its top position
-        ScrollTrigger.create({
-          trigger: card,
-          start: () => `top top+=${topOffset}`,
-          endTrigger: panelsRef.current,
-          end: 'bottom bottom',
-          pin: true,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        });
-
-        // When the NEXT card (i+1) approaches and glides up over this card, scale down and dim
-        if (i < stackedCards.length - 1) {
-          gsap.to(card, {
-            scale: 0.94,
-            opacity: 0.45,
-            transformOrigin: 'center top',
-            ease: 'none',
-            scrollTrigger: {
-              trigger: stackedCards[i + 1],
-              start: 'top 90%',
-              end: () => `top top+=${topOffset + 20}`,
-              scrub: true,
-            }
-          });
-        }
-        // When card (i+2) overlaps, scale this card down even further
-        if (i < stackedCards.length - 2) {
-          gsap.to(card, {
-            scale: 0.88,
-            opacity: 0.2,
-            transformOrigin: 'center top',
-            ease: 'none',
-            scrollTrigger: {
-              trigger: stackedCards[i + 2],
-              start: 'top 90%',
-              end: () => `top top+=${topOffset + 48}`,
-              scrub: true,
-            }
-          });
-        }
-      });
 
       // Video scale effect
       gsap.fromTo('.video-block', 
@@ -219,7 +178,7 @@ const Home = () => {
              We’re Here to Revolutionize the World of Digital Displays
            </h2>
            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl font-normal mb-8">
-             Dynamic Contrast and an IPS Panel <strong className="text-white font-semibold">Toughened glass</strong> with a viewing angle of 178 degrees. Standard 1080p High Definition screens available in 32", 43", and 4K screens in 55", and above sizes to provide a clear, crisp image.
+             Dynamic Contrast and an IPS Panel <strong className="text-white font-semibold">Toughened glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K screens in 43" and above sizes to provide a clear, crisp image.
            </p>
          </motion.div>
 
@@ -248,7 +207,7 @@ const Home = () => {
                <span className="hidden sm:inline-block text-white/40 text-lg transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default">+</span>
                <div className="text-base sm:text-lg md:text-xl font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer interactive group flex items-center gap-2">
                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 1080p FHD & 4K UHD
+                 768p HD · 1080p FHD · 4K UHD
                </div>
                <span className="hidden sm:inline-block text-white/40 text-lg transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default">+</span>
                <div className="text-base sm:text-lg md:text-xl font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer interactive group flex items-center gap-2">
@@ -260,176 +219,357 @@ const Home = () => {
          </motion.div>
       </section>
 
-      {/* VERTICAL STACKING CARDS SECTION */}
-      <section ref={panelsRef} className="relative py-28 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#06070a]">
-        <div className="max-w-7xl mx-auto space-y-24 sm:space-y-32 md:space-y-40 pb-40">
-          {/* Card 1: Resolution Redefined */}
-          <div 
-            className="stacked-card sticky z-10 top-10 sm:top-12 md:top-14 rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#121622]/95 via-[#0b0e17]/95 to-[#06080e]/98 border border-white/10 text-white shadow-[0_25px_80px_rgba(0,0,0,0.85)] px-5 sm:px-7 md:px-9 pt-4 sm:pt-5 pb-5 sm:pb-6 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 transition-shadow duration-500 backdrop-blur-xl relative will-change-transform"
-            style={{ top: 'clamp(2rem, 3.5vh, 2.75rem)' }}
-          >
-            {/* Ambient Background Glows & Gloss Edge */}
-            <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent pointer-events-none"></div>
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 blur-[110px] rounded-full pointer-events-none"></div>
+      {/* ── INTERACTIVE TABBED FEATURE SHOWCASE (OPTION 2) ── */}
+      <section className="relative py-20 sm:py-28 md:py-36 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#06070a] overflow-hidden">
+        {/* Ambient Spatial Glows */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-500/10 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[500px] bg-blue-600/10 blur-[180px] rounded-full pointer-events-none"></div>
 
-            {/* Left Content */}
-            <div className="flex-1 flex flex-col justify-center max-w-xl text-left relative z-10">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full backdrop-blur-sm mb-2.5 w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
-                RESOLUTION REDEFINED
-              </span>
-              
-              {/* Stats Row */}
-              <div className="flex flex-wrap items-center gap-5 sm:gap-8 mb-3.5 pb-3.5 border-b border-white/10">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl sm:text-4xl md:text-5xl font-light text-white tracking-tight">16.7 M</span>
-                  <span className="text-[11px] sm:text-xs font-medium text-cyan-400/90 uppercase tracking-wider">Colours</span>
-                </div>
-                <div className="hidden sm:block w-[1px] h-8 bg-white/10"></div>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl sm:text-4xl md:text-5xl font-light text-white tracking-tight">380 Nits</span>
-                  <span className="text-[11px] sm:text-xs font-medium text-cyan-400/90 uppercase tracking-wider">LED Brightness</span>
-                </div>
-              </div>
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4 font-normal">
-                Experience the full potential of high-definition display screens with crystal-clear 4K clarity, vibrant colour accuracy, superior contrast ratios, and durable energy-saving LED panels built for commercial longevity.
-              </p>
-
-              {/* Link / CTA */}
-              <a href="#explore" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] interactive group w-fit">
-                <span>READ MORE</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-
-            {/* Right Image */}
-            <div className="flex-1 w-full flex items-center justify-center p-2 sm:p-4 relative z-10">
-              <div className="absolute inset-0 bg-radial from-cyan-500/15 via-transparent to-transparent blur-3xl pointer-events-none"></div>
-              <img 
-                src={firstImg} 
-                alt="Resolution Redefined Product Displays" 
-                className="w-full h-auto max-h-[280px] sm:max-h-[320px] md:max-h-[360px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:scale-105 transition-transform duration-700" 
-              />
+        <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* Glassmorphic Segmented Tabs Header */}
+          <div className="flex justify-center mb-10 sm:mb-14">
+            <div className="inline-flex items-center p-1.5 sm:p-2 rounded-full bg-zinc-900/80 border border-white/15 backdrop-blur-xl shadow-[0_10px_35px_rgba(0,0,0,0.85)] max-w-full overflow-x-auto no-scrollbar">
+              {featureTabs.map((tab) => {
+                const isActive = activeFeatureTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveFeatureTab(tab.id)}
+                    className={`relative flex items-center gap-2 sm:gap-2.5 px-4 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                      isActive
+                        ? 'text-white shadow-[0_0_25px_rgba(34,211,238,0.3)]'
+                        : 'text-gray-400 hover:text-white hover:bg-white/[0.04]'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeFeatureTabIndicator"
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/25 via-blue-500/20 to-cyan-500/15 border border-cyan-400/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]"
+                        transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-2">
+                      <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]' : 'bg-transparent'}`}></span>
+                      <span className="font-mono text-[10px] sm:text-xs opacity-70">{tab.number}.</span>
+                      <span>{tab.label}</span>
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Card 2: Feature Rich Control Center */}
-          <div 
-            className="stacked-card sticky z-20 top-11 sm:top-13 md:top-15 rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#121622]/95 via-[#0b0e17]/95 to-[#06080e]/98 border border-white/15 text-white shadow-[0_-25px_60px_rgba(0,0,0,0.95),0_25px_80px_rgba(0,0,0,0.9)] px-5 sm:px-7 md:px-9 pt-4 sm:pt-5 pb-5 sm:pb-6 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 transition-shadow duration-500 backdrop-blur-xl relative will-change-transform"
-            style={{ top: 'clamp(2.25rem, 4vh, 3.1rem)' }}
-          >
-            {/* Ambient Background Glows & Gloss Edge */}
-            <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent pointer-events-none"></div>
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-violet-600/10 blur-[110px] rounded-full pointer-events-none"></div>
+          {/* Tab Content Display with AnimatePresence */}
+          <div className="relative min-h-[580px] lg:min-h-[620px]">
+            <AnimatePresence mode="wait">
+              {activeFeatureTab === 0 && (
+                <motion.div
+                  key="tab-resolution"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative rounded-[32px] sm:rounded-[40px] bg-gradient-to-br from-[#121622]/90 via-[#0b0e17]/95 to-[#06080e]/98 border border-white/12 text-white shadow-[0_30px_90px_rgba(0,0,0,0.85)] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14 backdrop-blur-2xl overflow-hidden group"
+                >
+                  {/* Gloss rim highlight */}
+                  <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent pointer-events-none"></div>
+                  <div className="absolute -top-32 -right-32 w-96 h-96 bg-cyan-500/15 blur-[120px] rounded-full pointer-events-none"></div>
 
-            {/* Left Image (App Devices Mockup) */}
-            <div className="flex-1 w-full flex items-center justify-center order-2 lg:order-1 p-2 sm:p-4 relative z-10">
-              <div className="absolute inset-0 bg-radial from-blue-500/15 via-transparent to-transparent blur-3xl pointer-events-none"></div>
-              <img 
-                src={secondImg} 
-                alt="IQ World Control App Interface" 
-                className="w-full h-auto max-h-[280px] sm:max-h-[320px] md:max-h-[360px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:scale-105 transition-transform duration-700" 
-              />
-            </div>
+                  {/* Left Content */}
+                  <div className="flex-1 flex flex-col justify-center text-left relative z-10 w-full">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/25 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
+                        RESOLUTION REDEFINED
+                      </span>
+                      <span className="text-xs font-mono text-gray-500 tracking-widest hidden sm:inline-block">CAN // 01</span>
+                    </div>
 
-            {/* Right Content */}
-            <div className="flex-1 flex flex-col justify-center max-w-xl text-left order-1 lg:order-2 relative z-10">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full backdrop-blur-sm mb-2.5 w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
-                FEATURE RICH CONTROL CENTER
-              </span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.08] mb-6">
+                      IPS Full Toughened Glass. <br/>
+                      <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300">
+                        768p, 1080p FHD & 4K Ultra HD.
+                      </span>
+                    </h2>
 
-              {/* Title & Subtitle */}
-              <div className="flex flex-wrap items-baseline gap-2.5 mb-3 pb-3 border-b border-white/10">
-                <h2 className="text-3xl sm:text-4xl font-light text-white tracking-tight">IQ World</h2>
-                <span className="text-xs sm:text-sm text-gray-400 font-normal">Display Screen Control App</span>
-              </div>
+                    {/* Stat Blocks */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 py-5 my-2 border-y border-white/10">
+                      <div>
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-extralight text-white tracking-tight">16.7 M</div>
+                        <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-cyan-400 mt-1">Colours Spectrum</div>
+                      </div>
+                      <div>
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-extralight text-white tracking-tight">380 Nits</div>
+                        <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-cyan-400 mt-1">Commercial Brightness</div>
+                      </div>
+                      <div className="col-span-2 sm:col-span-1">
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-extralight text-white tracking-tight">178°</div>
+                        <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-cyan-400 mt-1">Wide IPS Angle</div>
+                      </div>
+                    </div>
 
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4 font-normal">
-                A cloud-based powerhouse that transforms your CAN Displays into a centralized control hub. Monitor multi-screen fleets with schedule management, split-screen layouts, live ticker scrolling, and inbuilt media studio tools.
-              </p>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed my-5 font-normal max-w-xl">
+                      Experience the full potential of CAN commercial digital displays with 768p HD on 32", Full HD 1080p on 43", and 4K Ultra HD on 43" and above sizes, backed by 16.7M vivid colours and commercial-grade toughened glass.
+                    </p>
 
-              {/* Link / CTA */}
-              <a href="#download" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] interactive group w-fit">
-                <span>DOWNLOAD APK</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+                    <div className="flex flex-wrap items-center gap-2 mb-6">
+                      {['A+ Grade IPS Panel', 'Full Toughened Glass', '178° Vision Angle', '1-Yr Onsite Warranty'].map((pill, idx) => (
+                        <span key={idx} className="text-[10px] sm:text-[11px] font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3 py-1 rounded-full">
+                          {pill}
+                        </span>
+                      ))}
+                    </div>
+
+                    <Link 
+                      to="/technology" 
+                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] interactive group w-fit"
+                    >
+                      <span>EXPLORE TECHNOLOGY</span>
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+
+                  {/* Right Image */}
+                  <div className="flex-1 w-full flex items-center justify-center p-4 sm:p-6 lg:p-8 relative z-10">
+                    <div className="absolute inset-0 bg-radial from-cyan-500/20 via-transparent to-transparent blur-3xl pointer-events-none"></div>
+                    <div className="relative group/img overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-black/40 p-3 sm:p-5 w-full flex items-center justify-center shadow-2xl">
+                      <img 
+                        src={firstImg} 
+                        alt="Resolution Redefined Product Displays" 
+                        className="w-full h-auto max-h-[320px] sm:max-h-[380px] md:max-h-[420px] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)] group-hover/img:scale-105 transition-transform duration-700" 
+                      />
+                      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 px-3.5 py-2 rounded-xl bg-black/80 backdrop-blur-md border border-white/15 text-[10px] sm:text-xs font-mono text-cyan-300 flex items-center gap-2 shadow-xl pointer-events-none">
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span>4K UHD COMMERCIAL GRADE</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {activeFeatureTab === 1 && (
+                <motion.div
+                  key="tab-iqworld"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative rounded-[32px] sm:rounded-[40px] bg-gradient-to-br from-[#121324]/90 via-[#0a0c16]/95 to-[#06080e]/98 border border-white/12 text-white shadow-[0_30px_90px_rgba(0,0,0,0.85)] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14 backdrop-blur-2xl overflow-hidden group"
+                >
+                  <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent pointer-events-none"></div>
+                  <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/15 blur-[120px] rounded-full pointer-events-none"></div>
+
+                  {/* Left Mockup */}
+                  <div className="flex-1 w-full flex items-center justify-center p-4 sm:p-6 lg:p-8 order-2 lg:order-1 relative z-10">
+                    <div className="absolute inset-0 bg-radial from-blue-500/20 via-transparent to-transparent blur-3xl pointer-events-none"></div>
+                    <div className="relative group/img overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-black/40 p-3 sm:p-5 w-full flex items-center justify-center shadow-2xl">
+                      <img 
+                        src={secondImg} 
+                        alt="IQ World Control App Interface" 
+                        className="w-full h-auto max-h-[320px] sm:max-h-[380px] md:max-h-[420px] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)] group-hover/img:scale-105 transition-transform duration-700" 
+                      />
+                      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 px-3.5 py-1.5 rounded-full bg-cyan-950/80 backdrop-blur-md border border-cyan-500/30 text-[10px] sm:text-xs font-mono text-cyan-300 flex items-center gap-2 shadow-xl pointer-events-none">
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span>LIVE FLEET CONTROL</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Content */}
+                  <div className="flex-1 flex flex-col justify-center text-left order-1 lg:order-2 relative z-10 w-full">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/25 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
+                        FEATURE RICH CONTROL CENTER
+                      </span>
+                      <span className="text-xs font-mono text-gray-500 tracking-widest hidden sm:inline-block">CAN // 02</span>
+                    </div>
+
+                    <div className="mb-4">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.08]">
+                        IQ World <br/>
+                        <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-300">
+                          Display Screen Control App
+                        </span>
+                      </h2>
+                    </div>
+
+                    <p className="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed mb-6 font-normal max-w-xl">
+                      The IQ World app transforms your CAN Displays into a centralized control hub. Manage multiple screens effortlessly from anywhere with schedule management, split-screen layouts, scrolling ticker text, and inbuilt image & video editing tools.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-left">
+                        <div className="text-xs sm:text-sm font-semibold text-white mb-1">Centralized Control</div>
+                        <p className="text-[11px] text-gray-400">Manage and monitor multiple screens from one central dashboard.</p>
+                      </div>
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-left">
+                        <div className="text-xs sm:text-sm font-semibold text-white mb-1">Split-Screen Layouts</div>
+                        <p className="text-[11px] text-gray-400">Run videos, image carousels, and live scrolling text tickers simultaneously.</p>
+                      </div>
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-left">
+                        <div className="text-xs sm:text-sm font-semibold text-white mb-1">Schedule Management</div>
+                        <p className="text-[11px] text-gray-400">Automate content schedules and playlists across dates and times.</p>
+                      </div>
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-white/[0.03] border border-white/10 text-left">
+                        <div className="text-xs sm:text-sm font-semibold text-white mb-1">Inbuilt Media Editor</div>
+                        <p className="text-[11px] text-gray-400">Create and edit images and video banners directly inside the app.</p>
+                      </div>
+                    </div>
+
+                    <a 
+                      href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] interactive group w-fit"
+                    >
+                      <span>GET IQ WORLD APP</span>
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </motion.div>
+              )}
+
+              {activeFeatureTab === 2 && (
+                <motion.div
+                  key="tab-lineup"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative rounded-[32px] sm:rounded-[40px] bg-gradient-to-br from-[#121622]/90 via-[#0b0e17]/95 to-[#06080e]/98 border border-white/12 text-white shadow-[0_30px_90px_rgba(0,0,0,0.85)] p-6 sm:p-10 md:p-12 lg:p-16 backdrop-blur-2xl overflow-hidden"
+                >
+                  <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent pointer-events-none"></div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+
+                  {/* Header */}
+                  <div className="text-left relative z-10 mb-8 sm:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-6">
+                    <div>
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/25 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
+                          PRODUCT LINEUP
+                        </span>
+                        <span className="text-xs font-mono text-gray-500 tracking-widest hidden sm:inline-block">CAN // 03</span>
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight">
+                        Different Styles, For <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300">Different Spaces</span>
+                      </h2>
+                    </div>
+                    <p className="text-xs sm:text-sm text-gray-300 max-w-md font-normal leading-relaxed text-left md:text-right">
+                      Commercial digital displays built with A+ grade IPS panels, full toughened glass, and 1-Year Onsite Warranty.
+                    </p>
+                  </div>
+
+                  {/* 3 Showcase Bento Cards */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full relative z-10">
+                    
+                    {/* Product 1: CAN / CANLit */}
+                    <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/12 hover:border-cyan-500/50 text-white flex flex-col justify-between shadow-2xl hover:shadow-[0_20px_45px_rgba(0,0,0,0.8),0_0_30px_rgba(34,211,238,0.18)] hover:-translate-y-1 transition-all duration-300 group p-5 sm:p-6 backdrop-blur-md">
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-[10px] font-semibold text-cyan-400 uppercase tracking-widest px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+                            A-FRAME DIGITAL STANDEE
+                          </span>
+                          <span className="text-xs font-mono text-gray-500">CAN 3201 / 4301</span>
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors text-left mb-1">
+                          CAN / CANLit
+                        </h3>
+                        <p className="text-xs text-gray-400 font-normal text-left mb-4">
+                          Brilliant IPS Panel Full Toughened Glass display with continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.
+                        </p>
+                      </div>
+
+                      <div className="h-48 sm:h-56 flex items-center justify-center rounded-2xl bg-black/50 border border-white/5 p-4 my-2 relative overflow-hidden group-hover:border-cyan-500/20 transition-colors">
+                        <img src={canLit} alt="CANLit Displays" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+
+                      <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-3">
+                        <div className="text-[11px] text-gray-400 font-mono">178° IPS · Toughened Glass</div>
+                        <Link 
+                          to="/contact?model=CANLit"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
+                        >
+                          <span>Enquire</span>
+                          <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Product 2: CANMount */}
+                    <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/12 hover:border-cyan-500/50 text-white flex flex-col justify-between shadow-2xl hover:shadow-[0_20px_45px_rgba(0,0,0,0.8),0_0_30px_rgba(34,211,238,0.18)] hover:-translate-y-1 transition-all duration-300 group p-5 sm:p-6 backdrop-blur-md">
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-[10px] font-semibold text-cyan-400 uppercase tracking-widest px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+                            VERTICAL WALL MOUNT
+                          </span>
+                          <span className="text-xs font-mono text-gray-500">CANMount 32-55</span>
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors text-left mb-1">
+                          CANMount
+                        </h3>
+                        <p className="text-xs text-gray-400 font-normal text-left mb-4">
+                          Brilliant IPS Panel Full Toughened Glass vertical wall display delivering 16.7M colours, up to 380 Nits brightness, and 4K support on 50"+ screens.
+                        </p>
+                      </div>
+
+                      <div className="h-48 sm:h-56 flex items-center justify-center rounded-2xl bg-black/50 border border-white/5 p-4 my-2 relative overflow-hidden group-hover:border-cyan-500/20 transition-colors">
+                        <img src={canMount} alt="CANMount Displays" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+
+                      <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-3">
+                        <div className="text-[11px] text-gray-400 font-mono">16.7M Colours · 380 Nits</div>
+                        <Link 
+                          to="/contact?model=CANMount"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
+                        >
+                          <span>Enquire</span>
+                          <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Product 3: CANVue */}
+                    <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/12 hover:border-cyan-500/50 text-white flex flex-col justify-between shadow-2xl hover:shadow-[0_20px_45px_rgba(0,0,0,0.8),0_0_30px_rgba(34,211,238,0.18)] hover:-translate-y-1 transition-all duration-300 group p-5 sm:p-6 backdrop-blur-md">
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-[10px] font-semibold text-cyan-400 uppercase tracking-widest px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+                            MOBILE CASTER STANDEE
+                          </span>
+                          <span className="text-xs font-mono text-gray-500">CANVue 32-86</span>
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors text-left mb-1">
+                          CANVue
+                        </h3>
+                        <p className="text-xs text-gray-400 font-normal text-left mb-4">
+                          IPS Panel Full Toughened Glass display with smooth mobile caster wheels, available in sizes up to 86" with 4K resolution and 10W built-in audio.
+                        </p>
+                      </div>
+
+                      <div className="h-48 sm:h-56 flex items-center justify-center rounded-2xl bg-black/50 border border-white/5 p-4 my-2 relative overflow-hidden group-hover:border-cyan-500/20 transition-colors">
+                        <img src={canVue} alt="CANVue Displays" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+
+                      <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-3">
+                        <div className="text-[11px] text-gray-400 font-mono">Mobile Casters · 10W Audio</div>
+                        <Link 
+                          to="/contact?model=CANVue"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
+                        >
+                          <span>Enquire</span>
+                          <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </div>
+
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          {/* Card 3: Different Styles, For Different Spaces */}
-          <div 
-            className="stacked-card sticky z-30 top-12 sm:top-14 md:top-16 rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#121622]/95 via-[#0b0e17]/95 to-[#06080e]/98 border border-white/15 text-white shadow-[0_-25px_60px_rgba(0,0,0,0.98),0_25px_80px_rgba(0,0,0,0.95)] px-5 sm:px-7 md:px-9 pt-4 sm:pt-5 pb-5 sm:pb-6 flex flex-col justify-start transition-shadow duration-500 backdrop-blur-xl relative will-change-transform"
-            style={{ top: 'clamp(2.5rem, 4.5vh, 3.5rem)' }}
-          >
-            {/* Ambient Background Glows & Gloss Edge */}
-            <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent pointer-events-none"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-            {/* Top Heading */}
-            <div className="text-left relative z-10 mb-3 sm:mb-4">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full backdrop-blur-sm mb-1.5 w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]"></span>
-                PRODUCT LINEUP
-              </span>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-light tracking-tight text-white leading-tight mb-1">
-                Different Styles, For Different Spaces
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-300 max-w-2xl font-normal leading-relaxed">
-                Architectural commercial displays crafted for high-impact visual presence and seamless deployment.
-              </p>
-            </div>
-
-            {/* 3 Sub-Cards Showcase Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 w-full relative z-10">
-              {/* Sub-Card 1: CANLit */}
-              <div className="rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/12 hover:border-cyan-500/40 text-white flex flex-col justify-between shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.7),0_0_25px_rgba(34,211,238,0.12)] hover:scale-[1.01] transition-all duration-300 group relative backdrop-blur-md p-3 sm:p-3.5">
-                <div className="mb-2 text-left flex items-start justify-between">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-white mb-0 group-hover:text-cyan-300 transition-colors">CANLit</h3>
-                    <p className="text-[11px] text-gray-400 font-medium">Best and brightest.</p>
-                  </div>
-                  <span className="text-[9px] font-semibold text-cyan-400/90 uppercase tracking-widest px-2 py-0.5 rounded bg-white/5 border border-white/10 group-hover:border-cyan-500/30">FLAGSHIP</span>
-                </div>
-                <div className="h-36 sm:h-40 md:h-44 lg:h-48 flex items-center justify-center rounded-xl bg-black/40 border border-white/5 p-2 relative overflow-hidden">
-                  <img src={canLit} alt="CANLit Displays" className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-500" />
-                </div>
-              </div>
-
-              {/* Sub-Card 2: CANMount */}
-              <div className="rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/12 hover:border-cyan-500/40 text-white flex flex-col justify-between shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.7),0_0_25px_rgba(34,211,238,0.12)] hover:scale-[1.01] transition-all duration-300 group relative backdrop-blur-md p-3 sm:p-3.5">
-                <div className="mb-2 text-left flex items-start justify-between">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-white mb-0 group-hover:text-cyan-300 transition-colors">CANMount</h3>
-                    <p className="text-[11px] text-gray-400 font-medium">True-to-life display.</p>
-                  </div>
-                  <span className="text-[9px] font-semibold text-cyan-400/90 uppercase tracking-widest px-2 py-0.5 rounded bg-white/5 border border-white/10 group-hover:border-cyan-500/30">WALL MOUNT</span>
-                </div>
-                <div className="h-36 sm:h-40 md:h-44 lg:h-48 flex items-center justify-center rounded-xl bg-black/40 border border-white/5 p-2 relative overflow-hidden">
-                  <img src={canMount} alt="CANMount Displays" className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-500" />
-                </div>
-              </div>
-
-              {/* Sub-Card 3: CANVue */}
-              <div className="rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/12 hover:border-cyan-500/40 text-white flex flex-col justify-between shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.7),0_0_25px_rgba(34,211,238,0.12)] hover:scale-[1.01] transition-all duration-300 group relative backdrop-blur-md p-3 sm:p-3.5">
-                <div className="mb-2 text-left flex items-start justify-between">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-white mb-0 group-hover:text-cyan-300 transition-colors">CANVue</h3>
-                    <p className="text-[11px] text-gray-400 font-medium">Seamless crystal vision.</p>
-                  </div>
-                  <span className="text-[9px] font-semibold text-cyan-400/90 uppercase tracking-widest px-2 py-0.5 rounded bg-white/5 border border-white/10 group-hover:border-cyan-500/30">KIOSK</span>
-                </div>
-                <div className="h-36 sm:h-40 md:h-44 lg:h-48 flex items-center justify-center rounded-xl bg-black/40 border border-white/5 p-2 relative overflow-hidden">
-                  <img src={canVue} alt="CANVue Displays" className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-500" />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       
@@ -506,10 +646,10 @@ const Home = () => {
             </motion.h2>
             <div className="flex flex-col border-t border-white/15">
               {[
-                { q: "What is CAN and how is it unique in the landscape?", a: "CAN is an advanced digital display ecosystem combining seamless architectural hardware protocols with powerful cloud software for autonomous commercial management." },
-                { q: "How can users explore and manage the CAN network?", a: "Users can access the centralized control hub via the IQ World App to monitor, update, and manage multiple screens effortlessly from any location." },
-                { q: "What hardware solutions does CAN offer?", a: "CAN provides the CANLit flagship freestanding displays, ultra-slim CANMount architectural wall mounts, and CANVue interactive touch kiosks engineered for high-traffic public installations." },
-                { q: "How does CAN ensure 24/7 reliability and uptime?", a: "By utilizing silent heat dissipation thermal designs, commercial-grade panel architecture, and AI-driven automated content scheduling." }
+                { q: "What is CAN and how is it unique in the landscape?", a: "CAN provides commercial digital displays with A+ Grade IPS panels, full toughened glass protection, and 178° viewing angles designed for retail, commercial, and corporate environments." },
+                { q: "How can users explore and manage the CAN network?", a: "Users can manage displays via the IQ World App with cloud-based schedule management, split-screen layouts, continuous scrolling text, and an inbuilt editor." },
+                { q: "What hardware solutions does CAN offer?", a: "CAN offers freestanding A-frame standees (CAN / CANLit), vertical wall displays (CANMount), mobile caster standees (CANVue), and interactive touch desk displays (CANDesk)." },
+                { q: "What warranty and service comes with CAN displays?", a: "All CAN displays come with a 1-Year Onsite Warranty and dedicated customer support across India." }
               ].map((faq, idx) => (
                 <motion.div
                   key={idx}

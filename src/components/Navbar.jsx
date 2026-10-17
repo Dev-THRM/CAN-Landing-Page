@@ -37,7 +37,14 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
-        <button className="btn-nav-primary">IQ World App</button>
+        <a 
+          href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn-nav-primary"
+        >
+          IQ World App
+        </a>
       </div>
     </nav>
   );

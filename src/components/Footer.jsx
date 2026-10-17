@@ -34,9 +34,11 @@ const Footer = () => {
           {/* Column 4: Social */}
           <div className="flex flex-col gap-3">
             <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-2">SOCIAL</h4>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">Facebook</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">Instagram</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">YouTube</a>
+            <a href="https://www.facebook.com/profile.php?id=61557902141460" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">Facebook</a>
+            <a href="https://www.instagram.com/cansignage/" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">Instagram</a>
+            <a href="https://www.youtube.com/@cansignage" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">YouTube</a>
+            <a href="https://www.linkedin.com/company/can-signage/" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">LinkedIn</a>
+            <a href="https://x.com/cansignage_/status/2081997355738358122" className="text-gray-400 hover:text-white text-sm transition-colors underline decoration-gray-600 underline-offset-4">X</a>
           </div>
 
           {/* Column 5: Contact */}

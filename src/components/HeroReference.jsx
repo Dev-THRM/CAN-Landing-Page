@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Play, 
@@ -22,65 +23,65 @@ const slides = [
   {
     id: 0,
     number: '01',
-    name: 'CANLit',
-    badge: 'ARCHITECTURAL STANDEE',
-    headlineTop: 'FUEL YOUR',
-    headlineAccent: 'CREATIV',
-    headlineGhost: 'ITY',
+    name: 'CAN',
+    badge: 'A-FRAME DIGITAL STANDEE',
+    headlineTop: 'MULTI-TASK',
+    headlineAccent: 'YOUR',
+    headlineGhost: 'BEST',
     iconType: 'tv',
     description:
-      'The next generation of spatial digital signage that blends architectural hardware, perception, and cloud intelligence into one seamless experience. Experience displays engineered with 178° IPS viewing and 4K brilliance.',
+      'A brilliant IPS Panel Full Toughened Glass display built for everyday commercial reliability. Features 16.7M vivid colours, continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.',
     ctaPrimary: '>> Buy Now',
-    ctaPrimaryLink: '/technology',
+    ctaPrimaryLink: '/contact?model=CAN',
     ctaSecondary: 'Explore more',
     ctaSecondaryLink: '/technology',
     video: bg1,
     poster: bg1Thumb,
-    productCode: '11 PRO',
+    productCode: 'CAN 3201 / 4301',
     tag: 'STANDEE',
-    specs: ['178° IPS Panel', 'FHD & 4K UHD', 'Toughened Glass']
+    specs: ['A+ Grade IPS Panel', 'Full Toughened Glass', '1-Yr Onsite Warranty']
   },
   {
     id: 1,
     number: '02',
     name: 'CANMount',
-    badge: 'PRECISION WALL MOUNT',
-    headlineTop: 'ELEVATE YOUR',
-    headlineAccent: 'SPATIAL',
-    headlineGhost: 'VISION',
+    badge: 'VERTICAL WALL MOUNT',
+    headlineTop: 'TRUE-TO-LIFE',
+    headlineAccent: 'DISP',
+    headlineGhost: 'LAY',
     iconType: 'layers',
     description:
-      'Ultra-slim architectural wall-mounted displays featuring zero-gap wall integration, 16.7M vivid colours, and high-ambient 380 Nits illumination. Engineered for high-traffic corridors and luxury retail.',
+      'A brilliant IPS Panel Full Toughened Glass vertical wall display. Delivers 16.7M vivid colours, up to 380 Nits brightness, and 4K resolution support on 50" and above screens.',
     ctaPrimary: '>> Buy Now',
-    ctaPrimaryLink: '/technology',
+    ctaPrimaryLink: '/contact?model=CANMount',
     ctaSecondary: 'Explore more',
     ctaSecondaryLink: '/technology',
     video: bg2,
     poster: bg2Thumb,
-    productCode: '11 WALL',
+    productCode: 'CANMount 32-55',
     tag: 'WALL MOUNT',
-    specs: ['Zero-Gap Flush', '16.7M Colours', '380 Nits Brightness']
+    specs: ['Full Toughened Glass', '16.7M Colours', 'Up to 380 Nits']
   },
   {
     id: 2,
     number: '03',
     name: 'CANVue',
-    badge: 'INTERACTIVE TOUCH KIOSK',
-    headlineTop: 'TRANSFORM YOUR',
-    headlineAccent: 'INTERACT',
-    headlineGhost: 'ION',
+    badge: 'MOBILE CASTER STANDEE',
+    headlineTop: 'THE ULTIMATE',
+    headlineAccent: 'EXPERI',
+    headlineGhost: 'ENCE',
     iconType: 'sparkles',
     description:
-      'Autonomous multi-touch commercial kiosks built with precision caster mobility, toughened front glass, and 24/7 internal thermal cooling for dynamic public engagement in commercial environments.',
+      'A brilliant IPS Panel Full Toughened Glass display with smooth mobile caster wheels. Available in sizes up to 86" with 4K resolution, 100000:1 contrast ratio, and 10W built-in audio.',
     ctaPrimary: '>> Buy Now',
-    ctaPrimaryLink: '/technology',
+    ctaPrimaryLink: '/contact?model=CANVue',
     ctaSecondary: 'Explore more',
     ctaSecondaryLink: '/technology',
     video: bg3,
     poster: bg3Thumb,
-    productCode: '11 KIOSK',
-    tag: 'TOUCH KIOSK',
-    specs: ['Multi-Touch Tech', 'Mobile Caster Base', '24/7 Active Cooling']
+    productCode: 'CANVue 32-86',
+    tag: 'MOBILE STANDEE',
+    specs: ['Mobility with Wheels', '4K Support (50"+)', '10W Audio Speakers']
   }
 ];
 
@@ -218,7 +219,7 @@ const HeroReference = () => {
       {/* ── Top-Right Brand Subtle Accent ── */}
       <div className="absolute top-24 right-8 sm:right-14 z-20 hidden sm:flex items-center gap-2.5 opacity-80 pointer-events-none">
         <span className="text-[10px] tracking-[0.25em] uppercase text-cyan-400/80 font-mono font-medium">
-          CAN ARCHITECTURAL
+          ILLUMINATE ANYWHERE ANYTIME
         </span>
         <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]"></div>
       </div>
@@ -267,29 +268,29 @@ const HeroReference = () => {
               <div className="flex items-start gap-3.5 max-w-lg mb-6 sm:mb-7">
                 <span className="w-8 sm:w-10 h-[1.5px] bg-white/40 mt-2.5 flex-shrink-0"></span>
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
-                  {currentSlide.subtitle}
+                  {currentSlide.description || currentSlide.subtitle}
                 </p>
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-4">
-                <a
-                  href={currentSlide.ctaPrimaryLink}
+                <Link
+                  to={currentSlide.ctaPrimaryLink}
                   className="group inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-zinc-900/90 hover:bg-cyan-500 text-white hover:text-black border border-white/20 hover:border-cyan-400 font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] cursor-pointer"
                 >
                   <span className="text-cyan-400 group-hover:text-black font-extrabold tracking-tighter">
                     &gt;&gt;
                   </span>
                   <span>Buy Now</span>
-                </a>
+                </Link>
 
-                <a
-                  href={currentSlide.ctaSecondaryLink}
+                <Link
+                  to={currentSlide.ctaSecondaryLink}
                   className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold tracking-wider text-gray-300 hover:text-cyan-400 transition-colors duration-300 py-2.5 px-2 group cursor-pointer"
                 >
                   <span>Explore more</span>
                   <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </div>
 
               {/* Mini Specs Pill Bar */}

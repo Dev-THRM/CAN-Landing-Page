@@ -56,7 +56,7 @@ export const blogPosts = [
       
       <img src="${blog1SecImg}" alt="IQ World" class="w-full h-auto rounded-2xl border border-white/10 my-8 shadow-2xl" />
       
-      <p>Are you ready to take your screen management experience to the next level? Download the IQ World India Ka IQ Application today and experience unparalleled convenience and efficiency!</p>
+      <p>Are you ready to take your screen management experience to the next level? <a href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold underline hover:text-cyan-300">Download the IQ World India Ka IQ Application today</a> and experience unparalleled convenience and efficiency!</p>
       <p>Check the FAQ's of How to Operate IQ World App.</p>
     `
   },
@@ -177,7 +177,7 @@ export const blogPosts = [
 
       <h2>CAN Digital Display Products: A Closer Look</h2>
       <p>
-        <strong>CAN Digital Signage</strong> offers a range of high-definition screens designed to meet diverse business needs. The CAN product lineup includes standard <strong>1080p screens in sizes 32" and 43"</strong>, as well as <strong>4K screens in sizes 55", 65", and larger</strong>. These displays feature IPS panels with toughened glass and a wide <strong>178-degree viewing angle</strong>, ensuring clear and crisp images from virtually any perspective.
+        <strong>CAN Digital Signage</strong> offers a range of high-definition screens designed to meet diverse business needs. The CAN product lineup includes standard <strong>768p screens in 32"</strong>, <strong>Full HD 1080p screens in 43"</strong>, as well as <strong>4K screens in 43" and above sizes</strong>. These displays feature IPS panels with toughened glass and a wide <strong>178-degree viewing angle</strong>, ensuring clear and crisp images from virtually any perspective.
       </p>
 
       <h2>Conclusion: The Impact of Digital Displays on Marketing</h2>

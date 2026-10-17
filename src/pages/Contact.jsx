@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ArrowRight, Globe } from 'lucide-react';
 import malaysiaImg from '../assets/CANCANMalasiaDistributor.avif';
 import singaporeImg from '../assets/CANSingaporeDistributor.avif';
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const modelParam = searchParams.get('model');
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const [status, setStatus] = useState('');
   const [formData, setFormData] = useState({
-    models: []
+    models: modelParam ? [modelParam] : []
   });
 
   const modelsList = [
@@ -19,6 +23,15 @@ const Contact = () => {
     'CANDesk', 'CANDeskTent', 'CANDeskWid',
     'CANDiskTab', 'CANDiskMount'
   ];
+
+  useEffect(() => {
+    if (modelParam && modelsList.includes(modelParam)) {
+      setFormData(prev => ({
+        ...prev,
+        models: prev.models.includes(modelParam) ? prev.models : [...prev.models, modelParam]
+      }));
+    }
+  }, [modelParam]);
 
   const handleCheckboxChange = (model) => {
     setFormData(prev => {
