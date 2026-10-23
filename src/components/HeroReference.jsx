@@ -9,20 +9,47 @@ import {
   Sparkles, 
   ChevronRight, 
   Volume2, 
-  VolumeX 
+  VolumeX,
+  Zap,
+  Monitor
 } from 'lucide-react';
 
 import bg1 from '../assets/bg1.mp4';
 import bg2 from '../assets/bg2.mp4';
 import bg3 from '../assets/bg3.mp4';
+import bg4 from '../assets/bg4.mp4';
+import bg5 from '../assets/bg5.mp4';
 import bg1Thumb from '../assets/bg1-thumb.jpg';
 import bg2Thumb from '../assets/bg2-thumb.jpg';
 import bg3Thumb from '../assets/bg3-thumb.jpg';
+import bg4Thumb from '../assets/bg4-thumb.jpg';
+import bg5Thumb from '../assets/bg5-thumb.jpg';
 
 const slides = [
   {
     id: 0,
     number: '01',
+    name: 'CANVue',
+    badge: 'MOBILE CASTER STANDEE',
+    headlineTop: 'THE ULTIMATE',
+    headlineAccent: 'EXPERI',
+    headlineGhost: 'ENCE',
+    iconType: 'sparkles',
+    description:
+      'A brilliant IPS Panel Full Toughened Glass display with smooth mobile caster wheels. Available in sizes up to 86" with 4K resolution, 100000:1 contrast ratio, and 10W built-in audio.',
+    ctaPrimary: '>> Buy Now',
+    ctaPrimaryLink: '/contact?model=CANVue',
+    ctaSecondary: 'Explore more',
+    ctaSecondaryLink: '/technology',
+    video: bg3,
+    poster: bg3Thumb,
+    productCode: 'CANVue 32-86',
+    tag: 'MOBILE STANDEE',
+    specs: ['Mobility with Wheels', '4K Support (50"+)', '10W Audio Speakers']
+  },
+  {
+    id: 1,
+    number: '02',
     name: 'CAN',
     badge: 'A-FRAME DIGITAL STANDEE',
     headlineTop: 'MULTI-TASK',
@@ -42,8 +69,8 @@ const slides = [
     specs: ['A+ Grade IPS Panel', 'Full Toughened Glass', '1-Yr Onsite Warranty']
   },
   {
-    id: 1,
-    number: '02',
+    id: 2,
+    number: '03',
     name: 'CANMount',
     badge: 'VERTICAL WALL MOUNT',
     headlineTop: 'TRUE-TO-LIFE',
@@ -63,25 +90,46 @@ const slides = [
     specs: ['Full Toughened Glass', '16.7M Colours', 'Up to 380 Nits']
   },
   {
-    id: 2,
-    number: '03',
-    name: 'CANVue',
-    badge: 'MOBILE CASTER STANDEE',
-    headlineTop: 'THE ULTIMATE',
-    headlineAccent: 'EXPERI',
-    headlineGhost: 'ENCE',
-    iconType: 'sparkles',
+    id: 3,
+    number: '04',
+    name: 'CANLit',
+    badge: 'SLIM FREESTANDING PEDESTAL',
+    headlineTop: 'ARCHITECTURAL',
+    headlineAccent: 'ELEG',
+    headlineGhost: 'ANCE',
+    iconType: 'zap',
     description:
-      'A brilliant IPS Panel Full Toughened Glass display with smooth mobile caster wheels. Available in sizes up to 86" with 4K resolution, 100000:1 contrast ratio, and 10W built-in audio.',
+      'Ultra-slim architectural freestanding kiosk display on an elegant pedestal stand. Engineered with full toughened glass, premium multi-color finishes, vivid IPS clarity, and seamless IQ World cloud control.',
     ctaPrimary: '>> Buy Now',
-    ctaPrimaryLink: '/contact?model=CANVue',
+    ctaPrimaryLink: '/contact?model=CANLit',
     ctaSecondary: 'Explore more',
     ctaSecondaryLink: '/technology',
-    video: bg3,
-    poster: bg3Thumb,
-    productCode: 'CANVue 32-86',
-    tag: 'MOBILE STANDEE',
-    specs: ['Mobility with Wheels', '4K Support (50"+)', '10W Audio Speakers']
+    video: bg5,
+    poster: bg5Thumb,
+    productCode: 'CANLit 32 / 43',
+    tag: 'PEDESTAL',
+    specs: ['Pedestal Stand', 'Ultra-Slim Profile', 'Multi-Colour Finishes']
+  },
+  {
+    id: 4,
+    number: '05',
+    name: 'CANNX',
+    badge: 'COMMERCIAL SMART DISPLAY',
+    headlineTop: 'NEXT-GEN',
+    headlineAccent: 'VISI',
+    headlineGhost: 'ON',
+    iconType: 'monitor',
+    description:
+      'High-performance commercial smart display engineered for horizontal and multi-orientation deployments. Featuring ultra-low latency, industrial-grade cooling, ultra-wide viewing angles, and crystal-clear 4K resolution.',
+    ctaPrimary: '>> Buy Now',
+    ctaPrimaryLink: '/contact?model=CANNX',
+    ctaSecondary: 'Explore more',
+    ctaSecondaryLink: '/technology',
+    video: bg4,
+    poster: bg4Thumb,
+    productCode: 'CANNX 43-65',
+    tag: 'SMART DISPLAY',
+    specs: ['Industrial Grade', '4K Ultra HD', 'Multi-Orientation']
   }
 ];
 
@@ -169,6 +217,10 @@ const HeroReference = () => {
         return <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />;
       case 'sparkles':
         return <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />;
+      case 'zap':
+        return <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />;
+      case 'monitor':
+        return <Monitor className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />;
       case 'tv':
       default:
         return <Tv className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" />;
@@ -187,8 +239,8 @@ const HeroReference = () => {
         <div className="absolute bottom-1/3 right-1/4 w-[380px] h-[380px] bg-blue-600/10 blur-[160px] rounded-full"></div>
       </div>
 
-      {/* ── Vertical Slide Counter on the Far Right (01, 02, 03) ── */}
-      <div className="hidden lg:flex flex-col items-center gap-5 absolute right-6 xl:right-8 top-1/2 -translate-y-1/2 z-30">
+      {/* ── Vertical Slide Counter on the Far Right (01 to 05) ── */}
+      <div className="hidden lg:flex flex-col items-center gap-3 xl:gap-3.5 absolute right-6 xl:right-8 top-1/2 -translate-y-1/2 z-30">
         {slides.map((s, idx) => (
           <button
             key={s.id}
@@ -228,7 +280,7 @@ const HeroReference = () => {
       <div className="relative z-20 w-full max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-6 xl:gap-8 my-auto flex-1">
         
         {/* LEFT COLUMN: Typography & Content */}
-        <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start justify-center text-left">
+        <div className="lg:col-span-6 xl:col-span-5 relative z-20 flex flex-col items-start justify-center text-left">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide.id}
@@ -236,7 +288,7 @@ const HeroReference = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-start"
+              className="flex flex-col items-start w-full"
             >
               {/* Category Pill Tag */}
               <div className="mb-3 sm:mb-4">
@@ -247,7 +299,7 @@ const HeroReference = () => {
               </div>
 
               {/* Headline */}
-              <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] tracking-tight leading-[0.98] text-white uppercase mb-4 sm:mb-5">
+              <h1 className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[52px] tracking-tight leading-[0.98] text-white uppercase mb-4 sm:mb-5">
                 <span className="block">{currentSlide.headlineTop}</span>
                 <span className="flex items-center mt-1 sm:mt-1.5">
                   {/* Metallic Beveled Icon Box */}
@@ -308,16 +360,25 @@ const HeroReference = () => {
           </AnimatePresence>
         </div>
 
-        {/* RIGHT COLUMN: Dedicated Video Showcase (Enlarged and dynamic) */}
-        <div className="lg:col-span-7 xl:col-span-7 relative flex items-center justify-center lg:justify-end w-full h-[46vh] sm:h-[55vh] md:h-[62vh] lg:h-[74vh] xl:h-[80vh] max-h-[720px] xl:max-h-[820px]">
+        {/* RIGHT COLUMN: Dedicated Video Showcase with Edge Blending */}
+        <div className="lg:col-span-6 xl:col-span-7 relative z-10 flex items-center justify-center lg:justify-end w-full h-[46vh] sm:h-[55vh] md:h-[62vh] lg:h-[72vh] xl:h-[78vh] max-h-[720px] xl:max-h-[800px]">
+          
+          {/* Subtle Left & Bottom Feather Gradient so video canvas seamlessly melts into the dark background */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-28 xl:w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-20 bg-gradient-to-t from-black via-black/60 to-transparent z-20 pointer-events-none" />
+
           {slides.map((s, idx) => (
             <div
               key={s.id}
               className={`absolute inset-0 flex items-center justify-center lg:justify-end transition-all duration-700 ease-in-out ${
                 activeIdx === idx 
-                  ? 'opacity-100 scale-100 z-10' 
+                  ? 'opacity-100 scale-100 z-10 pointer-events-auto' 
                   : 'opacity-0 scale-95 pointer-events-none z-0'
               }`}
+              style={{
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 100%)',
+                maskImage: 'linear-gradient(to right, transparent 0%, black 14%, black 100%)'
+              }}
             >
               <video
                 ref={(el) => (videoRefs.current[idx] = el)}
@@ -328,7 +389,7 @@ const HeroReference = () => {
                 muted={isMuted}
                 playsInline
                 preload="auto"
-                className="w-full h-full max-h-full object-contain scale-[1.05] sm:scale-[1.10] lg:scale-[1.14] xl:scale-[1.18] transform origin-center lg:origin-right filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]"
+                className="w-full h-full max-h-full object-contain scale-[1.0] sm:scale-[1.03] lg:scale-[1.06] xl:scale-[1.10] transform origin-center lg:origin-right filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]"
               />
             </div>
           ))}
@@ -386,18 +447,18 @@ const HeroReference = () => {
           </div>
 
           {/* Switcher Boxes Row with Indicator Bars Below */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-end gap-2.5 sm:gap-3.5">
+          <div className="flex flex-col gap-2 max-w-[calc(100vw-80px)] sm:max-w-none overflow-x-auto no-scrollbar pb-1">
+            <div className="flex items-end gap-2 sm:gap-3">
               {slides.map((s, idx) => {
                 const isActive = activeIdx === idx;
                 return (
                   <button
                     key={s.id}
                     onClick={() => handleSelectSlide(idx)}
-                    className={`relative rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer text-left group ${
+                    className={`relative rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer text-left group flex-shrink-0 ${
                       isActive
-                        ? 'w-24 sm:w-32 md:w-36 h-16 sm:h-20 md:h-24 ring-2 ring-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.35)]'
-                        : 'w-14 sm:w-18 md:w-20 h-14 sm:h-18 md:h-18 opacity-60 hover:opacity-100 hover:scale-105 border border-white/20'
+                        ? 'w-24 sm:w-28 md:w-32 lg:w-36 h-16 sm:h-20 md:h-24 ring-2 ring-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.35)]'
+                        : 'w-12 sm:w-14 md:w-16 lg:w-18 h-14 sm:h-16 md:h-18 opacity-60 hover:opacity-100 hover:scale-105 border border-white/20'
                     }`}
                   >
                     {/* Thumbnail Image */}
@@ -454,8 +515,8 @@ const HeroReference = () => {
                     <div
                       className={`h-1 rounded-full transition-all duration-300 overflow-hidden relative ${
                         isActive
-                          ? 'w-12 sm:w-16 bg-white/20'
-                          : 'w-5 sm:w-7 bg-white/20 group-hover:bg-white/40'
+                          ? 'w-10 sm:w-14 bg-white/20'
+                          : 'w-4 sm:w-6 bg-white/20 group-hover:bg-white/40'
                       }`}
                     >
                       {isActive && (
