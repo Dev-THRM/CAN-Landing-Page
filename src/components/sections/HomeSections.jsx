@@ -125,7 +125,7 @@ export const DisplayTechSection = () => {
           <FadeInText direction="right">
           <Zap style={{ color: "#3b82f6", marginBottom: "1.5rem" }} size={40} />
             <p className="tech-description">
-              <strong className="text-white">Dynamic Contrast and an IPS Panel Toughened glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K screens in 43" and above sizes to provide a clear, crisp image.
+              <strong className="text-white">Dynamic Contrast and an IPS Panel Anti-Glare Toughened Glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K (2160 - 3840 pixels) screens in 43" and above sizes to provide a clear, crisp image.
             </p>
           </FadeInText>
         </motion.div>

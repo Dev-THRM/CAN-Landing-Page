@@ -700,16 +700,6 @@ ul {
   border-radius: 8px;
   box-shadow: 0 0 40px rgba(167, 139, 250, 0.3);
 }
-.layer-kiosk-touch {
-  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.04) 100%);
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  border-radius: 16px;
-  height: 75%;
-  top: 7%;
-  left: 12%;
-  width: 76%;
-  backdrop-filter: blur(1px);
-}
 
 /* Generic Page Container */
 .page-container {

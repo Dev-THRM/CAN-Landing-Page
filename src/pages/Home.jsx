@@ -49,7 +49,7 @@ const Loader = ({ setLoading }) => {
 // FAQ
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="border-b border-white/15 cursor-pointer interactive group py-8 sm:py-10 transition-colors" onClick={onClick}>
+    <div className="border-b border-white/15 cursor-pointer group py-8 sm:py-10 transition-colors" onClick={onClick}>
       <div className="flex justify-between items-center text-xl md:text-2xl font-normal text-white group-hover:text-cyan-400 transition-colors gap-6">
         <h3 className="pr-4 leading-relaxed">{question}</h3>
         <motion.div animate={{ rotate: isOpen ? 90 : 0 }} transition={{ duration: 0.3 }} className="flex-shrink-0">
@@ -178,7 +178,7 @@ const Home = () => {
              We’re Here to Revolutionize the World of Digital Displays
            </h2>
            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl font-normal mb-8">
-             Dynamic Contrast and an IPS Panel <strong className="text-white font-semibold">Toughened glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K screens in 43" and above sizes to provide a clear, crisp image.
+             Dynamic Contrast and an IPS Panel <strong className="text-white font-semibold">Anti-Glare Toughened Glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K (2160 - 3840 pixels) screens in 43" and above sizes to provide a clear, crisp image.
            </p>
          </motion.div>
 
@@ -190,36 +190,43 @@ const Home = () => {
            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
            className="relative z-10 pt-16 sm:pt-24 pb-4"
          >
-           <div className="relative border-t border-white/10 pt-8 overflow-hidden">
+           <div className="relative border-t border-white/10 pt-8">
              {/* Neon Shimmer Light Sweep across the divider line */}
-             <div className="absolute top-0 left-0 w-1/3 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-shimmer-sweep"></div>
+             <div className="absolute top-0 inset-x-0 h-[2px] overflow-hidden pointer-events-none">
+               <div className="w-1/3 h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-shimmer-sweep"></div>
+             </div>
 
-             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 md:gap-6">
-               <div className="text-base sm:text-lg md:text-xl font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer interactive group flex items-center gap-2">
+             <div className="flex flex-wrap items-center justify-center xl:justify-between gap-y-3.5 gap-x-3 sm:gap-x-4 md:gap-x-5 lg:gap-x-6">
+               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
                  178° Viewing Angle
                </div>
-               <span className="hidden sm:inline-block text-white/40 text-lg transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default">+</span>
-               <div className="text-base sm:text-lg md:text-xl font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer interactive group flex items-center gap-2">
+               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 IPS Toughened Glass
+                 IPS Anti-Glare Toughened Glass
                </div>
-               <span className="hidden sm:inline-block text-white/40 text-lg transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default">+</span>
-               <div className="text-base sm:text-lg md:text-xl font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer interactive group flex items-center gap-2">
+               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 768p HD · 1080p FHD · 4K UHD
+                 768p HD · 1080p FHD · 4K UHD (2160 - 3840 pixels)
                </div>
-               <span className="hidden sm:inline-block text-white/40 text-lg transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default">+</span>
-               <div className="text-base sm:text-lg md:text-xl font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer interactive group flex items-center gap-2">
+               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
                  32" · 43" · 55"+ Sizes
+               </div>
+               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
+                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
+                 Made in Bharat
                </div>
              </div>
            </div>
          </motion.div>
       </section>
 
-      {/* ── INTERACTIVE TABBED FEATURE SHOWCASE (OPTION 2) ── */}
+      {/* ── TABBED FEATURE SHOWCASE (OPTION 2) ── */}
       <section className="relative py-20 sm:py-28 md:py-36 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#06070a] overflow-hidden">
         {/* Ambient Spatial Glows */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-500/10 blur-[180px] rounded-full pointer-events-none"></div>
@@ -287,9 +294,9 @@ const Home = () => {
                     </div>
 
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.08] mb-6">
-                      IPS Full Toughened Glass. <br/>
+                      IPS Anti-Glare Toughened Glass. <br/>
                       <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300">
-                        768p, 1080p FHD & 4K Ultra HD.
+                        768p HD, 1080p FHD & 4K Ultra HD (2160 - 3840 pixels).
                       </span>
                     </h2>
 
@@ -300,7 +307,7 @@ const Home = () => {
                         <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-cyan-400 mt-1">Colours Spectrum</div>
                       </div>
                       <div>
-                        <div className="text-2xl sm:text-3xl md:text-4xl font-extralight text-white tracking-tight">380 Nits</div>
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-extralight text-white tracking-tight">380/500 Nits</div>
                         <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-cyan-400 mt-1">Commercial Brightness</div>
                       </div>
                       <div className="col-span-2 sm:col-span-1">
@@ -310,11 +317,11 @@ const Home = () => {
                     </div>
 
                     <p className="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed my-5 font-normal max-w-xl">
-                      Experience the full potential of CAN commercial digital displays with 768p HD on 32", Full HD 1080p on 43", and 4K Ultra HD on 43" and above sizes, backed by 16.7M vivid colours and commercial-grade toughened glass.
+                      Experience the full potential of CAN commercial digital displays with 768p HD on 32", Full HD 1080p on 43", and 4K Ultra HD (2160 - 3840 pixels) on 43" and above sizes, backed by 16.7M vivid colours and commercial-grade anti-glare toughened glass.
                     </p>
 
                     <div className="flex flex-wrap items-center gap-2 mb-6">
-                      {['A+ Grade IPS Panel', 'Full Toughened Glass', '178° Vision Angle', '1-Yr Onsite Warranty'].map((pill, idx) => (
+                      {['A+ Grade IPS Panel', 'Anti-Glare Toughened Glass', '178° Vision Angle', '1-Yr Onsite Warranty', 'Made in Bharat', 'BIS: R-XXXX0860'].map((pill, idx) => (
                         <span key={idx} className="text-[10px] sm:text-[11px] font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3 py-1 rounded-full">
                           {pill}
                         </span>
@@ -323,7 +330,7 @@ const Home = () => {
 
                     <Link 
                       to="/technology" 
-                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] interactive group w-fit"
+                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] group w-fit"
                     >
                       <span>EXPLORE TECHNOLOGY</span>
                       <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -418,15 +425,26 @@ const Home = () => {
                       </div>
                     </div>
 
-                    <a 
-                      href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] interactive group w-fit"
-                    >
-                      <span>GET IQ WORLD APP</span>
-                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    <div className="flex flex-wrap items-center gap-4">
+                      <a 
+                        href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] group w-fit"
+                      >
+                        <span>GET IQ WORLD APP</span>
+                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      </a>
+                      <Link 
+                        to="/iq-world-terms" 
+                        className="text-xs text-gray-400 hover:text-cyan-300 underline underline-offset-4 font-mono uppercase tracking-wider transition-colors"
+                      >
+                        IQ World T&C
+                      </Link>
+                    </div>
+                    <p className="text-[11px] text-gray-500 mt-3">
+                      * For 1 year, you will get the software complementary but only the basic version, pro version is also available with more advanced features.
+                    </p>
                   </div>
                 </motion.div>
               )}
@@ -458,7 +476,7 @@ const Home = () => {
                       </h2>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-300 max-w-md font-normal leading-relaxed text-left md:text-right">
-                      Commercial digital displays built with A+ grade IPS panels, full toughened glass, and 1-Year Onsite Warranty.
+                      Commercial digital displays built with A+ grade IPS panels, anti-glare toughened glass, and 1-Year Onsite Warranty.
                     </p>
                   </div>
 
@@ -478,7 +496,7 @@ const Home = () => {
                           CAN / CANLit
                         </h3>
                         <p className="text-xs text-gray-400 font-normal text-left mb-4">
-                          Brilliant IPS Panel Full Toughened Glass display with continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.
+                          Brilliant IPS Panel Anti-Glare Toughened Glass display with continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.
                         </p>
                       </div>
 
@@ -487,7 +505,7 @@ const Home = () => {
                       </div>
 
                       <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-3">
-                        <div className="text-[11px] text-gray-400 font-mono">178° IPS · Toughened Glass</div>
+                        <div className="text-[11px] text-gray-400 font-mono">178° IPS · Anti-Glare Toughened Glass</div>
                         <Link 
                           to="/contact?model=CANLit"
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
@@ -511,7 +529,7 @@ const Home = () => {
                           CANMount
                         </h3>
                         <p className="text-xs text-gray-400 font-normal text-left mb-4">
-                          Brilliant IPS Panel Full Toughened Glass vertical wall display delivering 16.7M colours, up to 380 Nits brightness, and 4K support on 50"+ screens.
+                          Brilliant IPS Panel Anti-Glare Toughened Glass vertical wall display delivering 16.7M colours, up to 380 Nits brightness, and 4K resolution (2160 - 3840 pixels) support on 50"+ screens.
                         </p>
                       </div>
 
@@ -544,7 +562,7 @@ const Home = () => {
                           CANVue
                         </h3>
                         <p className="text-xs text-gray-400 font-normal text-left mb-4">
-                          IPS Panel Full Toughened Glass display with smooth mobile caster wheels, available in sizes up to 86" with 4K resolution and 10W built-in audio.
+                          IPS Panel Anti-Glare Toughened Glass display available in 32", 43", 50", 55", 65", 75", and 86". Wheels are available from 43" to 86" (43", 50", 55", 65", 75", 86"); wheels are not provided in 32". Features 4K resolution (2160 - 3840 pixels) and 10W built-in audio.
                         </p>
                       </div>
 
@@ -553,7 +571,7 @@ const Home = () => {
                       </div>
 
                       <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-3">
-                        <div className="text-[11px] text-gray-400 font-mono">Mobile Casters · 10W Audio</div>
+                        <div className="text-[11px] text-gray-400 font-mono">Wheels: 43"-86" (32" No Wheels) · 10W Audio</div>
                         <Link 
                           to="/contact?model=CANVue"
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
@@ -606,7 +624,7 @@ const Home = () => {
               >
                 <Link 
                   to={`/blog/${post.slug || post.id}`}
-                  className="group rounded-[28px] sm:rounded-[32px] overflow-hidden bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-cyan-500/40 transition-all duration-500 flex flex-col justify-between shadow-2xl hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(34,211,238,0.15)] interactive cursor-pointer p-8 sm:p-10 lg:p-12 h-full block"
+                  className="group rounded-[28px] sm:rounded-[32px] overflow-hidden bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 hover:border-cyan-500/40 transition-all duration-500 flex flex-col justify-between shadow-2xl hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(34,211,238,0.15)] cursor-pointer p-8 sm:p-10 lg:p-12 h-full block"
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-black/60 mb-6 border border-white/5">
                     <img 
@@ -646,9 +664,9 @@ const Home = () => {
             </motion.h2>
             <div className="flex flex-col border-t border-white/15">
               {[
-                { q: "What is CAN and how is it unique in the landscape?", a: "CAN provides commercial digital displays with A+ Grade IPS panels, full toughened glass protection, and 178° viewing angles designed for retail, commercial, and corporate environments." },
-                { q: "How can users explore and manage the CAN network?", a: "Users can manage displays via the IQ World App with cloud-based schedule management, split-screen layouts, continuous scrolling text, and an inbuilt editor." },
-                { q: "What hardware solutions does CAN offer?", a: "CAN offers freestanding A-frame standees (CAN / CANLit), vertical wall displays (CANMount), mobile caster standees (CANVue), and interactive touch desk displays (CANDesk)." },
+                { q: "What is CAN and how is it unique in the landscape?", a: "CAN provides commercial digital displays with A+ Grade IPS panels, anti-glare toughened glass protection, and 178° viewing angles designed for retail, commercial, and corporate environments." },
+                { q: "How can users explore and manage the CAN network?", a: "Users can manage displays via the IQ World App with cloud-based schedule management, playlist control, and remote monitoring. For 1 year, you will get the software complementary but only the basic version, pro version is also available with more advanced features." },
+                { q: "What hardware solutions does CAN offer?", a: "CAN offers freestanding A-frame standees (CAN / CANLit), vertical wall displays (CANMount), mobile caster standees (CANVue — wheels available in 43\", 50\", 55\", 65\", 75\", 86\"; wheels not provided in 32\"), and compact desktop displays (CANDesk)." },
                 { q: "What warranty and service comes with CAN displays?", a: "All CAN displays come with a 1-Year Onsite Warranty and dedicated customer support across India." }
               ].map((faq, idx) => (
                 <motion.div

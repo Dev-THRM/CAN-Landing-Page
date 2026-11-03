@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Technology from './pages/Technology';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import Terms from './pages/Terms';
 
 function App() {
   const lenisRef = useRef();
@@ -51,6 +52,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/iq-world-terms" element={<Terms defaultTab="iq-world" />} />
+            <Route path="/terms" element={<Terms defaultTab="iq-world" />} />
+            <Route path="/warranty-policy" element={<Terms defaultTab="warranty" />} />
+            <Route path="/technical-requirements" element={<Terms defaultTab="technical" />} />
+            <Route path="/can-terms" element={<Terms defaultTab="can-tc" />} />
           </Routes>
         </main>
         <Footer />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/can logo.png';
 
 const Footer = () => {
@@ -11,24 +12,26 @@ const Footer = () => {
           
           {/* Column 1: Logo */}
           <div className="lg:col-span-1">
-            <img src={logo} alt="CAN Logo" className="h-10 w-auto object-contain" />
+            <Link to="/">
+              <img src={logo} alt="CAN Logo" className="h-10 w-auto object-contain" />
+            </Link>
           </div>
 
           {/* Column 2: Navigation */}
           <div className="flex flex-col gap-3">
-            <a href="/" className="text-gray-400 hover:text-white text-sm transition-colors">Home</a>
-            <a href="/technology" className="text-gray-400 hover:text-white text-sm transition-colors">Technology</a>
-            <a href="/blog" className="text-gray-400 hover:text-white text-sm transition-colors">Blog</a>
-            <a href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</a>
+            <Link to="/" className="text-gray-400 hover:text-white text-sm transition-colors">Home</Link>
+            <Link to="/technology" className="text-gray-400 hover:text-white text-sm transition-colors">Technology</Link>
+            <Link to="/blog" className="text-gray-400 hover:text-white text-sm transition-colors">Blog</Link>
+            <Link to="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link>
           </div>
 
           {/* Column 3: Terms & Policies */}
           <div className="flex flex-col gap-3">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">CAN T&C</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Warranty Policy</a>
+            <Link to="/can-terms" className="text-gray-400 hover:text-white text-sm transition-colors">CAN T&C</Link>
+            <Link to="/warranty-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Warranty Policy</Link>
             <div className="h-4"></div> {/* Spacer */}
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">IQ World T&C</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Technical Requirement</a>
+            <Link to="/iq-world-terms" className="text-gray-400 hover:text-white text-sm transition-colors">IQ World T&C</Link>
+            <Link to="/technical-requirements" className="text-gray-400 hover:text-white text-sm transition-colors">Technical Requirement</Link>
           </div>
 
           {/* Column 4: Social */}
@@ -55,11 +58,21 @@ const Footer = () => {
 
         </div>
 
-        {/* Bottom Section: Copyright */}
-        <div className="pt-8">
+        {/* Bottom Section: Copyright, BIS Certification & Made in Bharat */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
             © 2025 Lumocast Digital Signage Pvt. Ltd.
           </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-xs font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3.5 py-1 rounded-full flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              BIS: R-XXXX0860
+            </span>
+            <span className="text-xs font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3.5 py-1 rounded-full flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              Made in Bharat
+            </span>
+          </div>
         </div>
 
       </div>

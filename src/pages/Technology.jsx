@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, CheckCircle, Smartphone, MonitorSmartphone, Airplay, Maximize2, X, Check, Eye, Sparkles } from 'lucide-react';
 import cantechno from '../assets/cantechno.jpg';
-import canOrientationPortrait from '../assets/can-orientation-portrait.jpg';
-import canOrientationLandscape from '../assets/can-orientation-landscape.jpg';
+import verticalImg from '../assets/vertical.png';
+import horizontalImg from '../assets/horizontal.png';
 import remote from '../assets/remote.jpg';
 import iqscreens from '../assets/iqscreens.jpg';
 
@@ -185,7 +186,7 @@ const Technology = () => {
                  Resolution <span className="font-bold text-cyan-400">Redefined</span>
               </h3>
               <p className="text-gray-400 leading-relaxed text-base sm:text-lg font-light">
-                Elevate your viewing experience with IPS Panel's HD brilliance or dive into the future with 4K resolution support, available in our 43" and above screen sizes. CAN Display ensures every detail is brought to life on your screen.
+                Elevate your viewing experience with IPS Panel's HD brilliance or dive into the future with 4K resolution (2160 - 3840 pixels) support, available in our 43" and above screen sizes. CAN Display ensures every detail is brought to life on your screen.
               </p>
             </motion.div>
             
@@ -259,7 +260,7 @@ const Technology = () => {
                     </span>
                     <button
                       type="button"
-                      onClick={() => setFullscreenImage({ src: canOrientationPortrait, title: 'Portrait Floor Standee in Retail Boutique', orientation: 'Portrait' })}
+                      onClick={() => setFullscreenImage({ src: verticalImg, title: 'Portrait Floor Standee - Vertical Display', orientation: 'Portrait' })}
                       className="w-8 h-8 rounded-full border border-white/10 bg-white/5 hover:bg-cyan-500/20 flex items-center justify-center text-gray-400 hover:text-white transition-colors cursor-pointer"
                       title="Inspect full screen"
                     >
@@ -282,8 +283,8 @@ const Technology = () => {
                   {/* 16:9 Aspect Viewport - Ensures 100% of the photograph and screen are fully visible without cropping */}
                   <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black shadow-inner border border-white/5">
                     <img
-                      src={canOrientationPortrait}
-                      alt="CAN Vertical Portrait Display Standee in Luxury Retail Store"
+                      src={verticalImg}
+                      alt="CAN Vertical Portrait Display Standee"
                       className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 block"
                     />
 
@@ -312,7 +313,7 @@ const Technology = () => {
                 {/* Use Case & Features Breakdown */}
                 <div className="mt-auto space-y-4">
                   <p className="text-sm text-gray-300 leading-relaxed font-light">
-                    Engineered to command attention in high-footfall areas. Ideal for fashion boutiques, hotel lobbies, corporate entrances, and interactive wayfinding directories.
+                    Engineered to command attention in high-footfall areas. Ideal for fashion boutiques, hotel lobbies, corporate entrances, and digital wayfinding directories.
                   </p>
 
                   <div className="grid grid-cols-2 gap-2.5 pt-2">
@@ -337,7 +338,7 @@ const Technology = () => {
                     <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                       <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Glass & Panel</div>
                       <div className="text-xs font-medium text-white flex items-center gap-1.5">
-                        <Check size={12} className="text-cyan-400" /> Toughened IPS Glass
+                        <Check size={12} className="text-cyan-400" /> Anti-Glare Toughened IPS Glass
                       </div>
                     </div>
                   </div>
@@ -363,7 +364,7 @@ const Technology = () => {
                     </span>
                     <button
                       type="button"
-                      onClick={() => setFullscreenImage({ src: canOrientationLandscape, title: 'Landscape Digital Menu Display with 178° Wide Angle', orientation: 'Landscape' })}
+                      onClick={() => setFullscreenImage({ src: horizontalImg, title: 'Landscape Horizontal Display with 178° Wide Angle', orientation: 'Landscape' })}
                       className="w-8 h-8 rounded-full border border-white/10 bg-white/5 hover:bg-blue-500/20 flex items-center justify-center text-gray-400 hover:text-white transition-colors cursor-pointer"
                       title="Inspect full screen"
                     >
@@ -386,8 +387,8 @@ const Technology = () => {
                   {/* 16:9 Aspect Viewport - 100% of the screen, pizza menu, CAN logo, and 178° viewing angle callout visible */}
                   <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black shadow-inner border border-white/5">
                     <img
-                      src={canOrientationLandscape}
-                      alt="CAN Horizontal Landscape Menu Display in Pizza Restaurant with 178 degree wide viewing angle"
+                      src={horizontalImg}
+                      alt="CAN Horizontal Landscape Menu Display with 178 degree wide viewing angle"
                       className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 block"
                     />
 
@@ -617,15 +618,26 @@ const Technology = () => {
                 <p className="anim-text text-lg sm:text-xl text-gray-400 leading-relaxed font-light text-left">
                   Empower yourself with the IQ World app's robust features. Manage screens efficiently with admin control, while clients enjoy a seamless viewing experience. It's control at your fingertips.
                 </p>
-                <a 
-                  href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="anim-text inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-fuchsia-600/20 hover:bg-fuchsia-500 hover:text-white border border-fuchsia-500/30 hover:border-fuchsia-400 transition-all duration-300 shadow-[0_0_20px_rgba(217,70,239,0.2)]"
-                >
-                  <span>Get IQ World App</span>
-                  <ArrowRight size={14} />
-                </a>
+                <div className="anim-text flex flex-wrap items-center gap-4">
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-fuchsia-600/20 hover:bg-fuchsia-500 hover:text-white border border-fuchsia-500/30 hover:border-fuchsia-400 transition-all duration-300 shadow-[0_0_20px_rgba(217,70,239,0.2)]"
+                  >
+                    <span>Get IQ World App</span>
+                    <ArrowRight size={14} />
+                  </a>
+                  <Link
+                    to="/iq-world-terms"
+                    className="text-xs text-fuchsia-300/80 hover:text-fuchsia-200 underline underline-offset-4 tracking-wider uppercase font-mono transition-colors"
+                  >
+                    View IQ World T&C
+                  </Link>
+                </div>
+                <p className="anim-text text-xs text-gray-500 font-light">
+                  * For 1 year, you will get the software complementary but only the basic version, pro version is also available with more advanced features.
+                </p>
               </div>
             </div>
 
@@ -701,7 +713,7 @@ const Technology = () => {
                 <button
                   type="submit"
                   disabled={subscribed}
-                  className={`w-full flex items-center justify-center gap-3 font-bold text-sm tracking-widest uppercase py-5 sm:py-6 rounded-3xl transition-all duration-300 interactive ${
+                  className={`w-full flex items-center justify-center gap-3 font-bold text-sm tracking-widest uppercase py-5 sm:py-6 rounded-3xl transition-all duration-300 ${
                     subscribed 
                       ? 'bg-green-500 text-white shadow-[0_0_30px_rgba(34,197,94,0.3)]'
                       : 'bg-white text-black hover:bg-cyan-400 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(34,211,238,0.4)]'

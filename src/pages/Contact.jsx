@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ArrowRight, Globe } from 'lucide-react';
-import malaysiaImg from '../assets/CANCANMalasiaDistributor.avif';
-import singaporeImg from '../assets/CANSingaporeDistributor.avif';
+import indiaGlobalRoutesImg from '../assets/India Global Travel Routes Infographic.png';
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -96,41 +95,31 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* INTERNATIONAL DISTRIBUTORS */}
+      {/* GLOBAL DISTRIBUTION ROUTES & REACH */}
       <section className="py-20 sm:py-28 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#050505] relative border-b border-white/5">
         <div className="max-w-7xl mx-auto relative z-10">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-white">
-              International Distributors
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+            <div>
+              <span className="text-xs font-semibold text-cyan-400 uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 mb-4 inline-block">
+                GLOBAL FOOTPRINT
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-white">
+                Global Distribution Network
+              </h2>
+            </div>
             <p className="text-sm sm:text-base text-gray-400 font-medium leading-relaxed max-w-xl">
-              "We are thrilled to welcome you as a distributor! Your commitment and dedication to our products are invaluable, and we're excited to achieve even greater success together"
+              Connecting Bharat to international markets worldwide. Delivering premium commercial display solutions and technical excellence across global trade and distribution corridors.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Malaysia */}
-            <div className="group flex flex-col gap-6">
-              <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden bg-black border border-white/10 relative">
-                <img src={malaysiaImg} alt="Malaysia Distributor" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-medium text-white group-hover:text-cyan-400 transition-colors">
-                Sorab Enterprise Sdn Bhd, Malaysia
-              </h3>
-            </div>
-
-            {/* Singapore */}
-            <div className="group flex flex-col gap-6">
-              <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden bg-black border border-white/10 relative">
-                <img src={singaporeImg} alt="Singapore Distributor" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-medium text-white group-hover:text-cyan-400 transition-colors">
-                Sorab Enterprise Pte Ltd, Singapore
-              </h3>
-            </div>
+          <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden bg-gradient-to-b from-white/[0.05] to-black/60 border border-white/10 p-2 sm:p-4 md:p-6 shadow-[0_25px_70px_rgba(0,0,0,0.9)] backdrop-blur-xl group">
+            <div className="absolute inset-0 bg-radial from-cyan-500/10 via-transparent to-transparent pointer-events-none blur-3xl"></div>
+            <img 
+              src={indiaGlobalRoutesImg} 
+              alt="India Global Travel Routes Infographic" 
+              className="w-full h-auto rounded-[20px] sm:rounded-[28px] object-contain mx-auto shadow-2xl group-hover:scale-[1.01] transition-transform duration-700" 
+            />
           </div>
 
         </div>
