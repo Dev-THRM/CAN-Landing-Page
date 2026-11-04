@@ -15,7 +15,8 @@ import {
   ArrowRight,
   Monitor,
   CheckCircle2,
-  AlertTriangle
+  AlertTriangle,
+  Zap
 } from 'lucide-react';
 
 const Terms = ({ defaultTab = 'iq-world' }) => {
@@ -457,6 +458,49 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                   Recommended network infrastructure, operating system environments, and power parameters for uninterrupted operation of CAN displays and the IQ World cloud platform.
                 </p>
 
+                {/* Requirements & Details Table */}
+                <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 bg-black/40">
+                  <div className="px-6 py-4 bg-white/[0.04] border-b border-white/10 flex items-center justify-between">
+                    <h4 className="text-xs sm:text-sm font-semibold text-white tracking-wider uppercase flex items-center gap-2">
+                      <Zap size={16} className="text-cyan-400" />
+                      Key On-Site Requirements
+                    </h4>
+                    <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20">
+                      Mandatory
+                    </span>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left text-xs border-collapse">
+                      <thead>
+                        <tr className="border-b border-white/10 text-gray-400 uppercase tracking-wider text-[11px] bg-white/[0.02]">
+                          <th className="py-3.5 px-6 font-semibold w-1/3">Requirements</th>
+                          <th className="py-3.5 px-6 font-semibold">Details</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-white/5 text-gray-300">
+                        <tr className="hover:bg-white/[0.02] transition-colors">
+                          <td className="py-4 px-6 font-medium text-white flex items-center gap-2 whitespace-nowrap">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                            Wi-Fi Connectivity
+                          </td>
+                          <td className="py-4 px-6 text-gray-300 leading-relaxed">
+                            Stable 4G internet connection with a minimum speed of 25 Mbps is required for using IQ World software.
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-white/[0.02] transition-colors">
+                          <td className="py-4 px-6 font-medium text-white flex items-center gap-2 whitespace-nowrap">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                            Power Socket
+                          </td>
+                          <td className="py-4 px-6 text-gray-300 leading-relaxed">
+                            One additional power socket is required at the installation location.
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                   <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
                     <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
@@ -480,10 +524,10 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                       Network & Connectivity
                     </h4>
                     <ul className="space-y-2 text-xs text-gray-400">
-                      <li>• <strong>Wi-Fi:</strong> 2.4 GHz & 5.0 GHz 802.11 b/g/n dual-band wireless</li>
+                      <li>• <strong>Wi-Fi Connectivity:</strong> Stable 4G internet connection with a minimum speed of 25 Mbps is required for using IQ World software.</li>
+                      <li>• <strong>Wi-Fi Bands:</strong> 2.4 GHz & 5.0 GHz 802.11 b/g/n dual-band wireless</li>
                       <li>• <strong>LAN:</strong> RJ-45 Ethernet 10/100/1000 Mbps port</li>
                       <li>• <strong>Cellular (Optional):</strong> 4G / 5G SIM card slot expansion module</li>
-                      <li>• <strong>Recommended Bandwidth:</strong> Minimum 5 Mbps per display for seamless 4K asset sync</li>
                       <li>• <strong>Offline Caching:</strong> Integrated local storage continues playback during dropouts</li>
                     </ul>
                   </div>

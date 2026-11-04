@@ -183,50 +183,73 @@ const Home = () => {
          </motion.div>
 
          {/* Bottom Feature Tabs Row with Light Sweep Shimmer & Staggered Reveal */}
-         <motion.div 
-           initial={{ opacity: 0, y: 25 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, margin: "-40px" }}
-           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-           className="relative z-10 pt-16 sm:pt-24 pb-4"
-         >
-           <div className="relative border-t border-white/10 pt-8">
-             {/* Neon Shimmer Light Sweep across the divider line */}
-             <div className="absolute top-0 inset-x-0 h-[2px] overflow-hidden pointer-events-none">
-               <div className="w-1/3 h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-shimmer-sweep"></div>
-             </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 pt-16 sm:pt-24 pb-4"
+          >
+            <div className="relative border-t border-white/10 pt-8">
+              {/* Neon Shimmer Light Sweep across the divider line */}
+              <div className="absolute top-0 inset-x-0 h-[2px] overflow-hidden pointer-events-none">
+                <div className="w-1/3 h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-shimmer-sweep"></div>
+              </div>
 
-             <div className="flex flex-wrap items-center justify-center xl:justify-between gap-y-3.5 gap-x-3 sm:gap-x-4 md:gap-x-5 lg:gap-x-6">
-               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
-                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 178° Viewing Angle
-               </div>
-               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
-               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
-                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 IPS Anti-Glare Toughened Glass
-               </div>
-               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
-               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
-                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 768p HD · 1080p FHD · 4K UHD (2160 - 3840 pixels)
-               </div>
-               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
-               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
-                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 32" · 43" · 55"+ Sizes
-               </div>
-               <span className="hidden sm:inline-block text-white/40 text-sm sm:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
-               <div className="text-xs sm:text-sm lg:text-[15px] xl:text-base font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
-                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                 Made in Bharat
-               </div>
-             </div>
-           </div>
-         </motion.div>
-      </section>
+              {/* Desktop View (lg+): Single unbreaking horizontal line with + separators */}
+              <div className="hidden lg:flex items-center justify-between w-full">
+                <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
+                  178° Viewing Angle
+                </div>
+                <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+                <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
+                  IPS Anti-Glare Toughened Glass
+                </div>
+                <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+                <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
+                  768p HD · 1080p FHD · 4K UHD (2160 - 3840 pixels)
+                </div>
+                <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+                <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
+                  32" · 43" · 55"+ Sizes
+                </div>
+                <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
+                <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
+                  Made in Bharat
+                </div>
+              </div>
 
-      {/* ── TABBED FEATURE SHOWCASE (OPTION 2) ── */}
+              {/* Mobile & Tablet View (< lg): Balanced centered flow with dot separators */}
+              <div className="flex lg:hidden flex-wrap items-center justify-center gap-x-3.5 gap-y-2.5 text-center">
+                {[
+                  '178° Viewing Angle',
+                  'IPS Anti-Glare Toughened Glass',
+                  '768p HD · 1080p FHD · 4K UHD (2160 - 3840 pixels)',
+                  '32" · 43" · 55"+ Sizes',
+                  'Made in Bharat'
+                ].map((spec, idx, arr) => (
+                  <React.Fragment key={idx}>
+                    <div className="text-xs sm:text-sm font-medium text-white/90 hover:text-cyan-300 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]"></span>
+                      {spec}
+                    </div>
+                    {idx < arr.length - 1 && (
+                      <span className="text-white/30 text-xs select-none">•</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+
+            </div>
+          </motion.div>
+       </section>
+
+       {/* ── TABBED FEATURE SHOWCASE (OPTION 2) ── */}
       <section className="relative py-20 sm:py-28 md:py-36 px-4 sm:px-8 md:px-14 lg:px-20 bg-[#06070a] overflow-hidden">
         {/* Ambient Spatial Glows */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-500/10 blur-[180px] rounded-full pointer-events-none"></div>
