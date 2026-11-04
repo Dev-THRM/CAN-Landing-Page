@@ -72,14 +72,14 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-5 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all duration-300 flex items-center gap-2.5 cursor-pointer border ${
                     isActive
-                      ? 'bg-white text-black border-white shadow-[0_0_25px_rgba(255,255,255,0.3)] scale-[1.02]'
+                      ? 'bg-white !text-black border-white shadow-[0_0_25px_rgba(255,255,255,0.3)] scale-[1.02]'
                       : 'bg-white/[0.04] text-gray-400 border-white/10 hover:border-white/25 hover:text-white'
                   }`}
                 >
                   <span>{tab.label}</span>
                   {tab.badge && (
                     <span className={`text-[10px] uppercase font-mono px-2 py-0.5 rounded-full ${
-                      isActive ? 'bg-black/10 text-black font-bold' : 'bg-white/10 text-gray-300'
+                      isActive ? 'bg-black/10 !text-black font-bold' : 'bg-white/10 text-gray-300'
                     }`}>
                       {tab.badge}
                     </span>
@@ -325,61 +325,114 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                     <Shield size={24} />
                   </span>
                   <div>
-                    <span className="text-xs uppercase font-mono tracking-widest text-cyan-400">Comprehensive Hardware Protection</span>
-                    <h2 className="text-2xl sm:text-4xl font-light text-white">1-Year Onsite Warranty</h2>
+                    <span className="text-xs uppercase font-mono tracking-widest text-cyan-400">Official LUMOCAST Policy</span>
+                    <h2 className="text-2xl sm:text-4xl font-light text-white">Warranty & Platform Policy</h2>
                   </div>
                 </div>
 
-                <p className="text-sm sm:text-base leading-relaxed text-gray-300 mb-8">
-                  All CAN commercial displays are backed by an extensive <strong>1-Year Onsite Warranty</strong>. Should your display encounter any hardware performance deviation, our authorized service engineers provide direct onsite diagnostics, component repair, or replacement.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                  <div className="p-5 rounded-2xl bg-black/40 border border-white/10">
-                    <h4 className="font-semibold text-white mb-2 flex items-center gap-2">
-                      <CheckCircle2 size={16} className="text-green-400" />
-                      What is Covered:
-                    </h4>
-                    <ul className="text-xs text-gray-400 space-y-2 pl-6 list-disc">
-                      <li>Manufacturing defects in A+ Grade IPS display panels</li>
-                      <li>Internal motherboard, memory modules & Android / CPU boards</li>
-                      <li>Factory power supply units (PSU) and integrated 10W speaker audio systems</li>
-                      <li>Anti-glare toughened glass structural integrity issues originating from fabrication</li>
-                      <li>Integrated cooling systems and passive ventilation components</li>
+                <div className="space-y-6 text-sm">
+                  {/* 1. Warranty & Platform Registration */}
+                  <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
+                    <h3 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                      <Clock size={18} className="text-cyan-400" />
+                      1. Warranty & Platform Registration
+                    </h3>
+                    <ul className="space-y-2.5 text-xs text-gray-300">
+                      <li>• <strong>Mandatory Registration Period:</strong> Mandatory registration must be completed within 7 days from the date of purchase.</li>
+                      <li>• <strong>Late Fee & Restrictions:</strong> Failure to register within the stipulated 7 days will result in additional monthly late fees, and online system usage will be restricted.</li>
+                      <li>• <strong>IQ World Platform Renewal:</strong> Upon expiration of the IQ World Platform subscription, clients may renew by choosing a suitable service package and paying the prescribed fee.</li>
+                      <li>• <strong>Discontinuation of Service:</strong> Clients must note that online media playback on the platform will be automatically discontinued upon subscription expiry until renewed.</li>
+                      <li>• <strong>Registration Process:</strong> Customers can complete registration on our official website, via QR code, or by contacting customer support with their original tax invoice and device serial number.</li>
                     </ul>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-black/40 border border-white/10">
-                    <h4 className="font-semibold text-white mb-2 flex items-center gap-2">
-                      <AlertTriangle size={16} className="text-amber-400" />
-                      Warranty Exclusions:
-                    </h4>
-                    <ul className="text-xs text-gray-400 space-y-2 pl-6 list-disc">
-                      <li>Physical glass breakage, accidental drops, or vehicle impact</li>
-                      <li>Severe electrical surges caused by ungrounded or faulty external electrical circuits</li>
-                      <li>Water immersion or exposure beyond specified indoor/semi-outdoor operating ratings</li>
-                      <li>Unauthorized disassembly or third-party component modification</li>
-                      <li>Cosmetic scratches, abrasions, or natural wear over continuous operation</li>
+                  {/* 2. Warranty Coverage & Duration */}
+                  <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
+                    <h3 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                      <Shield size={18} className="text-cyan-400" />
+                      2. Warranty Coverage & Duration
+                    </h3>
+                    <ul className="space-y-2.5 text-xs text-gray-300">
+                      <li>• <strong>Limited Warranty:</strong> LUMOCAST provides a limited warranty for Digital Signage Displays for a period of 1 Years starting from the date of original purchase.</li>
+                      <li>• <strong>Proof of Eligibility:</strong> A valid Tax Invoice and successful Warranty Registration are strictly required to claim warranty benefits.</li>
                     </ul>
                   </div>
-                </div>
 
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">How to Request Onsite Warranty Service</h4>
-                  <p className="text-xs sm:text-sm text-gray-300 mb-4">
-                    To register an onsite service claim, contact our dedicated customer care team with your display model and invoice details:
-                  </p>
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
-                    <span className="px-3.5 py-2 rounded-xl bg-black/50 border border-white/10 text-white">
-                      Phone / Helpline: +91 91523 98498
-                    </span>
-                    <span className="px-3.5 py-2 rounded-xl bg-black/50 border border-white/10 text-cyan-400">
-                      Email: service@cansignage.com
-                    </span>
-                    <span className="px-3.5 py-2 rounded-xl bg-black/50 border border-white/10 text-gray-300">
-                      Turnaround: 24 - 48 business hours
-                    </span>
+                  {/* 3. What is Covered & 4. What is Not Covered Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* 3. What is Covered */}
+                    <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
+                      <h3 className="text-base font-semibold text-white mb-2 flex items-center gap-2">
+                        <CheckCircle2 size={18} className="text-green-400" />
+                        3. What is Covered
+                      </h3>
+                      <p className="text-xs text-gray-400 mb-3">This warranty covers hardware and technical failures occurring under normal operating conditions, including:</p>
+                      <ul className="space-y-2 text-xs text-gray-300">
+                        <li>• <strong>Manufacturing Defects:</strong> Defects arising from faulty materials or manufacturing processes.</li>
+                        <li>• <strong>Core Hardware Components:</strong> Display Panel, Power Supply Unit (PSU), Motherboard, Controller Board, and Internal Wiring.</li>
+                        <li>• <strong>Operational Failures:</strong> Unforeseen electronic or mechanical failures during standard operation.</li>
+                        <li>• <strong>Service & Repair:</strong> Defective parts will be repaired or replaced free of charge after verification by authorized technical personnel.</li>
+                      </ul>
+                    </div>
+
+                    {/* 4. What is Not Covered (Exclusions) */}
+                    <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
+                      <h3 className="text-base font-semibold text-white mb-2 flex items-center gap-2">
+                        <AlertTriangle size={18} className="text-amber-400" />
+                        4. What is Not Covered (Exclusions)
+                      </h3>
+                      <p className="text-xs text-gray-400 mb-3">The following circumstances and conditions are strictly excluded from warranty coverage:</p>
+                      <ul className="space-y-2 text-xs text-gray-300">
+                        <li>• <strong>Physical Damage:</strong> Damage caused by physical impacts, dropping, transportation accidents, or cracked/broken screens.</li>
+                        <li>• <strong>Environmental & Natural Disasters:</strong> Damage resulting from floods, earthquakes, lightning strikes, fire, extreme weather, or condensation.</li>
+                        <li>• <strong>Electrical Failures:</strong> Damage caused by high/low voltage fluctuations, improper electrical grounding (earthing), or power surges.</li>
+                        <li>• <strong>Improper Usage & Installation:</strong> Outdoor usage of indoor models, failure to follow user manual instructions, or improper installation by unauthorized personnel.</li>
+                        <li>• <strong>Liquid Damage:</strong> Damage caused by water or any liquid entering the device casing.</li>
+                        <li>• <strong>Unauthorized Modifications:</strong> Tampering, opening the outer casing, or unauthorized repair attempts by anyone other than certified LUMOCAST technicians immediately voids the warranty.</li>
+                        <li>• <strong>Serial Number & Seal:</strong> Alteration, removal, or defacing of the original warranty seal or serial number sticker.</li>
+                        <li>• <strong>Normal Wear & Tear:</strong> Minor brightness reduction over extended usage, natural color shifting, or static image burn-in.</li>
+                      </ul>
+                    </div>
                   </div>
+
+                  {/* 5. Software & Content Disclaimer */}
+                  <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
+                    <h3 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                      <Info size={18} className="text-cyan-400" />
+                      5. Software & Content Disclaimer
+                    </h3>
+                    <ul className="space-y-2.5 text-xs text-gray-300">
+                      <li>• This warranty is strictly limited to hardware components only.</li>
+                      <li>• LUMOCAST is not responsible for third-party software, applications, operating system bugs, or media player software glitches.</li>
+                      <li>• LUMOCAST assumes no liability for the protection, backup, or recovery of content, media files, or data displayed on the screen.</li>
+                    </ul>
+                  </div>
+
+                  {/* 6. Warranty Claim & Service Process */}
+                  <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
+                    <h3 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                      <RefreshCw size={18} className="text-cyan-400" />
+                      6. Warranty Claim & Service Process
+                    </h3>
+                    <ol className="space-y-2.5 text-xs text-gray-300 list-decimal pl-5">
+                      <li><strong>Ticket Logging:</strong> Upon experiencing a defect, customers must log a service ticket with customer support providing the tax invoice, serial number, and photo/video evidence of the issue.</li>
+                      <li><strong>Technical Inspection:</strong> Our technical team will first conduct a remote evaluation or schedule an inspection.</li>
+                      <li><strong>Service Delivery:</strong> On-site service is provided in designated regions. For carry-in/RTV service, packaging and transportation costs/risk rest with the customer.</li>
+                    </ol>
+                  </div>
+
+                  {/* 7. Limitation of Liability */}
+                  <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
+                    <h3 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                      <Lock size={18} className="text-cyan-400" />
+                      7. Limitation of Liability
+                    </h3>
+                    <ul className="space-y-2.5 text-xs text-gray-300">
+                      <li>• LUMOCAST shall not be legally liable for any indirect, incidental, or consequential business losses, downtime costs, or loss of profits arising from device failure or service suspension.</li>
+                      <li>• The maximum financial liability of LUMOCAST under this warranty is strictly limited to the original purchase price of the product.</li>
+                    </ul>
+                  </div>
+
                 </div>
 
               </div>
@@ -479,9 +532,10 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
           <div className="flex items-center gap-4">
             <Link
               to="/contact"
-              className="px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase bg-white text-black hover:bg-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs font-bold tracking-widest uppercase bg-cyan-400 !text-black hover:bg-white hover:!text-black hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.3)] cursor-pointer"
             >
-              Contact Support
+              <span>Contact Support</span>
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>
