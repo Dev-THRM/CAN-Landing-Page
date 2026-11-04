@@ -10,6 +10,7 @@ import blog2 from '../assets/blogs/blog2.jpg';
 import blog2Sec from '../assets/blogs/blog2-sec.jpg'
 import blog3 from '../assets/blog3.mp4';
 import blog3poster from '../assets/blogs/blog3poster.jpg';
+import promoteBrandImg from '../assets/Promote Your Brand with Digital Signage.png';
 
 
 export const blogPosts = [
@@ -130,7 +131,7 @@ export const blogPosts = [
     id: 3,
     slug: 'the-impact-of-digital-displays-on-marketing',
     title: 'The Impact of Digital Displays on Marketing',
-    image: blog3poster,
+    image: promoteBrandImg,
     date: 'Feb 24, 2025',
     author: 'CAN Marketing',
     content: `
@@ -139,7 +140,7 @@ export const blogPosts = [
       </p>
 
       <div class="my-8 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-        <video src="${blog3}" poster="${blog3poster}" autoPlay loop muted playsInline controls class="w-full h-auto max-h-[520px] object-cover mx-auto"></video>
+        <video src="${blog3}" poster="${promoteBrandImg}" autoPlay loop muted playsInline controls class="w-full h-auto max-h-[520px] object-cover mx-auto"></video>
       </div>
 
       <p>
@@ -174,6 +175,8 @@ export const blogPosts = [
           <p>Digital displays are not confined to a single industry. Retailers use them to highlight promotions, restaurants display dynamic menus, and corporate offices employ them for internal communications. This versatility makes digital displays a valuable asset across various sectors.</p>
         </div>
       </div>
+
+      <img src="${promoteBrandImg}" alt="Promote Your Brand with Digital Signage" class="w-full h-auto rounded-2xl border border-white/10 my-8 shadow-2xl" />
 
       <h2>CAN Digital Display Products: A Closer Look</h2>
       <p>
