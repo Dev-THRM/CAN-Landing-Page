@@ -207,12 +207,12 @@ const Home = () => {
                 <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
                 <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                  IPS Anti-Glare Toughened Glass
+                  Anti-Glare and Toughened Glass
                 </div>
                 <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
                 <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                  768p HD · 1080p FHD · 4K UHD
+                  768p HD · 1080p FHD · 2160 4K UHD
                 </div>
                 <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
                 <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
