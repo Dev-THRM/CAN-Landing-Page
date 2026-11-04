@@ -180,7 +180,7 @@ const Home = () => {
              We’re Here to Revolutionize the World of Digital Displays
            </h2>
            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl font-normal mb-8">
-             Dynamic Contrast and an IPS Panel <strong className="text-white font-semibold">Anti-Glare Toughened Glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K (2160 × 3840 pixels) screens in 50" and above sizes to provide a clear, crisp image.
+             Dynamic Contrast and an IPS Panel <strong className="text-white font-semibold">Toughened and Anti-Glare Glass</strong> with a viewing angle of 178 degrees. High Definition 768p in 32", Full HD 1080p in 43", and 4K (2160 × 3840 pixels) screens in 50" and above sizes to provide a clear, crisp image.
            </p>
          </motion.div>
 
@@ -207,7 +207,7 @@ const Home = () => {
                 <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
                 <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#22d3ee]"></span>
-                  Anti-Glare and Toughened Glass
+                  Toughened and Anti-Glare Glass
                 </div>
                 <span className="text-white/40 text-sm lg:text-base transition-transform duration-500 hover:rotate-90 hover:text-cyan-400 cursor-default select-none">+</span>
                 <div className="text-xs lg:text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium text-white/90 hover:text-cyan-300 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group flex items-center gap-2 whitespace-nowrap">
@@ -230,7 +230,7 @@ const Home = () => {
               <div className="flex xl:hidden flex-wrap items-center justify-center gap-x-3.5 sm:gap-x-5 gap-y-2.5 text-center">
                 {[
                   '178° Viewing Angle',
-                  'IPS Anti-Glare Toughened Glass',
+                  'Toughened and Anti-Glare Glass',
                   '768p HD · 1080p FHD · 4K UHD',
                   '32" · 43" · 55"+ Sizes',
                   'Made in Bharat'
@@ -319,7 +319,7 @@ const Home = () => {
                     </div>
 
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.08] mb-6">
-                      IPS Anti-Glare Toughened Glass. <br/>
+                      IPS Toughened and Anti-Glare Glass. <br/>
                       <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300">
                         768p HD, 1080p FHD & 4K Ultra HD (2160 × 3840 pixels).
                       </span>
@@ -342,11 +342,11 @@ const Home = () => {
                     </div>
 
                     <p className="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed my-5 font-normal max-w-xl">
-                      Experience the full potential of CAN commercial digital displays with 768p HD on 32", Full HD 1080p on 43", and 4K Ultra HD (2160 × 3840 pixels) on 50" and above sizes, backed by 16.7M vivid colours and commercial-grade anti-glare toughened glass.
+                      Experience the full potential of CAN commercial digital displays with 768p HD on 32", Full HD 1080p on 43", and 4K Ultra HD (2160 × 3840 pixels) on 50" and above sizes, backed by 16.7M vivid colours and commercial-grade Toughened and Anti-Glare Glass.
                     </p>
 
                     <div className="flex flex-wrap items-center gap-2 mb-6">
-                      {['A+ Grade IPS Panel', 'Anti-Glare Toughened Glass', '178° Vision Angle', '1-Yr Onsite Warranty', 'Made in Bharat', 'BIS: R-XXXX0860'].map((pill, idx) => (
+                      {['A+ Grade IPS Panel', 'Toughened and Anti-Glare Glass', '178° Vision Angle', '1-Yr Onsite Warranty', 'Made in Bharat', 'BIS: R-XXXX0860'].map((pill, idx) => (
                         <span key={idx} className="text-[10px] sm:text-[11px] font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3 py-1 rounded-full">
                           {pill}
                         </span>
@@ -502,7 +502,7 @@ const Home = () => {
                       </h2>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-300 max-w-md font-normal leading-relaxed text-left md:text-right">
-                      Commercial digital displays built with A+ grade IPS panels, anti-glare toughened glass, and 1-Year Onsite Warranty.
+                      Commercial digital displays built with A+ grade IPS panels, Toughened and Anti-Glare Glass, and 1-Year Onsite Warranty.
                     </p>
                   </div>
 
@@ -522,7 +522,7 @@ const Home = () => {
                           CAN / CANLit
                         </h3>
                         <p className="text-xs text-gray-400 font-normal text-left mb-4">
-                          Brilliant IPS Panel Anti-Glare Toughened Glass display with continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.
+                          Brilliant IPS Panel Toughened and Anti-Glare Glass display with continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.
                         </p>
                       </div>
 
@@ -531,7 +531,7 @@ const Home = () => {
                       </div>
 
                       <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-3">
-                        <div className="text-[11px] text-gray-400 font-mono">178° IPS · Anti-Glare Toughened Glass</div>
+                        <div className="text-[11px] text-gray-400 font-mono">178° IPS · Toughened and Anti-Glare Glass</div>
                         <Link 
                           to="/contact?model=CANLit"
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
@@ -555,7 +555,7 @@ const Home = () => {
                           CANMount
                         </h3>
                         <p className="text-xs text-gray-400 font-normal text-left mb-4">
-                          Brilliant IPS Panel Anti-Glare Toughened Glass vertical wall display delivering 16.7M colours, up to 380 Nits brightness, and 4K resolution (2160 - 3840 pixels) support on 50"+ screens.
+                          Brilliant IPS Panel Toughened and Anti-Glare Glass vertical wall display delivering 16.7M colours, up to 380 Nits brightness, and 4K resolution (2160 - 3840 pixels) support on 50"+ screens.
                         </p>
                       </div>
 
@@ -588,7 +588,7 @@ const Home = () => {
                           CANVue
                         </h3>
                         <p className="text-xs text-gray-400 font-normal text-left mb-4">
-                          IPS Panel Anti-Glare Toughened Glass display available in 32", 43", 50", 55", 65", 75", and 86". Wheels are available from 43" to 86" (43", 50", 55", 65", 75", 86"); wheels are not provided in 32". Features 4K resolution (2160 - 3840 pixels) and 10W built-in audio.
+                          IPS Panel Toughened and Anti-Glare Glass display available in 32", 43", 50", 55", 65", 75", and 86". Wheels are available from 43" to 86" (43", 50", 55", 65", 75", 86"); wheels are not provided in 32". Features 4K resolution (2160 - 3840 pixels) and 10W built-in audio.
                         </p>
                       </div>
 
@@ -690,7 +690,7 @@ const Home = () => {
             </motion.h2>
             <div className="flex flex-col border-t border-white/15">
               {[
-                { q: "What is CAN and how is it unique in the landscape?", a: "CAN provides commercial digital displays with A+ Grade IPS panels, anti-glare toughened glass protection, and 178° viewing angles designed for retail, commercial, and corporate environments." },
+                { q: "What is CAN and how is it unique in the landscape?", a: "CAN provides commercial digital displays with A+ Grade IPS panels, Toughened and Anti-Glare Glass protection, and 178° viewing angles designed for retail, commercial, and corporate environments." },
                 { q: "How can users explore and manage the CAN network?", a: "Users can manage displays via the IQ World App with cloud-based schedule management, playlist control, and remote monitoring. For 1 year, you will get the software complementary but only the basic version, pro version is also available with more advanced features." },
                 { q: "What hardware solutions does CAN offer?", a: "CAN offers freestanding A-frame standees (CAN / CANLit), vertical wall displays (CANMount), mobile caster standees (CANVue — wheels available in 43\", 50\", 55\", 65\", 75\", 86\"; wheels not provided in 32\"), and compact desktop displays (CANDesk)." },
                 { q: "What warranty and service comes with CAN displays?", a: "All CAN displays come with a 1-Year Onsite Warranty and dedicated customer support across India." }

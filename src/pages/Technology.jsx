@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle, Smartphone, MonitorSmartphone, Airplay, Maximi
 import cantechno from '../assets/cantechno.jpg';
 import verticalImg from '../assets/vertical.png';
 import horizontalImg from '../assets/horizontal.png';
-import remote from '../assets/remote.jpg';
+import remote from '../assets/remote.png';
 import iqWorldShowcase from '../assets/IQ World Digital Signage Showcase.png';
 import { useSmartAppUrl } from '../utils/smartRedirect';
 
@@ -340,7 +340,7 @@ const Technology = () => {
                     <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                       <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Glass & Panel</div>
                       <div className="text-xs font-medium text-white flex items-center gap-1.5">
-                        <Check size={12} className="text-cyan-400" /> Anti-Glare Toughened IPS Glass
+                        <Check size={12} className="text-cyan-400" /> Toughened and Anti-Glare IPS Glass
                       </div>
                     </div>
                   </div>

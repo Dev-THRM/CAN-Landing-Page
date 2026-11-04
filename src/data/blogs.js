@@ -113,7 +113,7 @@ export const blogPosts = [
 
       <h2>CANDesk Series: Revolutionizing FMCG Marketing</h2>
       <p>
-        The <strong>CANDesk Series</strong> by CAN Digital Signage exemplifies the benefits of compact desktop digital displays. Featuring high-definition screens with dynamic contrast, anti-glare toughened glass protection and A+ Grade IPS panels, these displays ensure clear and crisp images. CANDesk Series comes with a wide range of display sizes ranging from <strong>10.1" upto 15.6"</strong>. The <strong>IQ World app</strong> enhances functionality by allowing centralized control, schedule management, and content editing, making it a versatile tool for brands aiming to enhance their marketing efforts.
+        The <strong>CANDesk Series</strong> by CAN Digital Signage exemplifies the benefits of compact desktop digital displays. Featuring high-definition screens with dynamic contrast, Toughened and Anti-Glare Glass protection and A+ Grade IPS panels, these displays ensure clear and crisp images. CANDesk Series comes with a wide range of display sizes ranging from <strong>10.1" upto 15.6"</strong>. The <strong>IQ World app</strong> enhances functionality by allowing centralized control, schedule management, and content editing, making it a versatile tool for brands aiming to enhance their marketing efforts.
       </p>
 
       <h2>White Labelling Opportunities</h2>
@@ -180,7 +180,7 @@ export const blogPosts = [
 
       <h2>CAN Digital Display Products: A Closer Look</h2>
       <p>
-        <strong>CAN Digital Signage</strong> offers a range of high-definition screens designed to meet diverse business needs. The CAN product lineup includes standard <strong>768p screens in 32"</strong>, <strong>Full HD 1080p screens in 43"</strong>, as well as <strong>4K (2160 × 3840 pixels) screens in 50" and above sizes</strong>. These displays feature IPS panels with anti-glare toughened glass and a wide <strong>178-degree viewing angle</strong>, ensuring clear and crisp images from virtually any perspective.
+        <strong>CAN Digital Signage</strong> offers a range of high-definition screens designed to meet diverse business needs. The CAN product lineup includes standard <strong>768p screens in 32"</strong>, <strong>Full HD 1080p screens in 43"</strong>, as well as <strong>4K (2160 × 3840 pixels) screens in 50" and above sizes</strong>. These displays feature IPS panels with Toughened and Anti-Glare Glass and a wide <strong>178-degree viewing angle</strong>, ensuring clear and crisp images from virtually any perspective.
       </p>
 
       <h2>Conclusion: The Impact of Digital Displays on Marketing</h2>

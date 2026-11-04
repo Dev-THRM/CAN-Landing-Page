@@ -36,7 +36,7 @@ const slides = [
     headlineGhost: 'ENCE',
     iconType: 'sparkles',
     description:
-      'A brilliant IPS Panel Anti-Glare Toughened Glass display available in 32", 43", 50", 55", 65", 75", and 86". Wheels are available from 43" to 86"; wheels are not provided in 32". Features 4K resolution (2160 - 3840 pixels on 50"+), 100000:1 contrast ratio, and 10W built-in audio.',
+      'A brilliant IPS Panel Toughened and Anti-Glare Glass display available in 32", 43", 50", 55", 65", 75", and 86". Wheels are available from 43" to 86"; wheels are not provided in 32". Features 4K resolution (2160 - 3840 pixels on 50"+), 100000:1 contrast ratio, and 10W built-in audio.',
     ctaPrimary: '>> Buy Now',
     ctaPrimaryLink: '/contact?model=CANVue',
     ctaSecondary: 'Explore more',
@@ -57,7 +57,7 @@ const slides = [
     headlineGhost: 'BEST',
     iconType: 'tv',
     description:
-      'A brilliant IPS Panel Anti-Glare Toughened Glass display built for everyday commercial reliability. Features 16.7M vivid colours, continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.',
+      'A brilliant IPS Panel Toughened and Anti-Glare Glass display built for everyday commercial reliability. Features 16.7M vivid colours, continuous scrolling text, inbuilt image & video editor, and 1-Year Onsite Warranty.',
     ctaPrimary: '>> Buy Now',
     ctaPrimaryLink: '/contact?model=CAN',
     ctaSecondary: 'Explore more',
@@ -66,7 +66,7 @@ const slides = [
     poster: bg1Thumb,
     productCode: 'CAN 3201 / 4301',
     tag: 'STANDEE',
-    specs: ['A+ Grade IPS Panel', 'Anti-Glare Toughened Glass', '1-Yr Onsite Warranty']
+    specs: ['A+ Grade IPS Panel', 'Toughened and Anti-Glare Glass', '1-Yr Onsite Warranty']
   },
   {
     id: 2,
@@ -78,7 +78,7 @@ const slides = [
     headlineGhost: 'LAY',
     iconType: 'layers',
     description:
-      'A brilliant IPS Panel Anti-Glare Toughened Glass vertical wall display. Delivers 16.7M vivid colours, up to 380 Nits brightness, and 4K resolution (2160 - 3840 pixels) support on 50" and above screens.',
+      'A brilliant IPS Panel Toughened and Anti-Glare Glass vertical wall display. Delivers 16.7M vivid colours, up to 380 Nits brightness, and 4K resolution (2160 - 3840 pixels) support on 50" and above screens.',
     ctaPrimary: '>> Buy Now',
     ctaPrimaryLink: '/contact?model=CANMount',
     ctaSecondary: 'Explore more',
@@ -87,7 +87,7 @@ const slides = [
     poster: bg2Thumb,
     productCode: 'CANMount 32-55',
     tag: 'WALL MOUNT',
-    specs: ['Anti-Glare Toughened Glass', '16.7M Colours', 'Up to 380 Nits']
+    specs: ['Toughened and Anti-Glare Glass', '16.7M Colours', 'Up to 380 Nits']
   },
   {
     id: 3,
@@ -99,7 +99,7 @@ const slides = [
     headlineGhost: 'ANCE',
     iconType: 'zap',
     description:
-      'Ultra-slim architectural freestanding kiosk display on an elegant pedestal stand. Engineered with anti-glare toughened glass, premium multi-color finishes, vivid IPS clarity, and seamless IQ World cloud control.',
+      'Ultra-slim architectural freestanding kiosk display on an elegant pedestal stand. Engineered with Toughened and Anti-Glare Glass, premium multi-color finishes, vivid IPS clarity, and seamless IQ World cloud control.',
     ctaPrimary: '>> Buy Now',
     ctaPrimaryLink: '/contact?model=CANLit',
     ctaSecondary: 'Explore more',
