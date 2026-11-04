@@ -11,6 +11,8 @@ import blog2Sec from '../assets/blogs/blog2-sec.jpg'
 import blog3 from '../assets/blog3.mp4';
 import blog3poster from '../assets/blogs/blog3poster.jpg';
 import promoteBrandImg from '../assets/Promote Your Brand with Digital Signage.png';
+import appStoreBadge from '../assets/app-store-badge.svg';
+import googlePlayBadge from '../assets/google-play-badge.svg';
 
 
 export const blogPosts = [
@@ -50,6 +52,15 @@ export const blogPosts = [
         For users who need flexibility and mobility, the <strong>IQ World Mobile App</strong> serves as a <strong>portable command center</strong>. This application ensures that you can <strong>manage tasks, run schedules, and make adjustments on the go</strong>—all with just a few taps on your smartphone. Whether you are traveling or away from your workstation, control remains within your grasp.
       </p>
 
+      <div class="not-prose flex flex-wrap items-center gap-4 my-6">
+        <a href="https://apps.apple.com/in/app/iqworld-display/id6748666233" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105 hover:opacity-90">
+          <img src="${appStoreBadge}" alt="Download on the App Store" class="h-11 w-auto" style="margin: 0; border: none; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105 hover:opacity-90">
+          <img src="${googlePlayBadge}" alt="Get it on Google Play" class="h-11 w-auto" style="margin: 0; border: none; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);" />
+        </a>
+      </div>
+
       <h2>Why Choose IQ World?</h2>
       <p>
         IQ World India Ka IQ Application redefines digital screen management by offering a <strong>user-friendly, feature-rich, and secure</strong> solution with Basic & Pro options. For 1 year, you will get the software complementary but only the basic version, pro version is also available with more advanced features. Designed for <strong>businesses, advertisers, educational institutions, and enterprises</strong>, this app simplifies digital content control, enhances engagement, and optimizes operations. Read our <a href="/iq-world-terms" class="text-cyan-400 font-semibold underline hover:text-cyan-300">IQ World T&C</a> for full licensing conditions.
@@ -58,6 +69,16 @@ export const blogPosts = [
       <img src="${iqWorldShowcase}" alt="IQ World Digital Signage Showcase" class="w-full h-auto rounded-2xl border border-white/10 my-8 shadow-2xl" />
       
       <p>Are you ready to take your screen management experience to the next level? Download the IQ World India Ka IQ Application today on the <a href="https://apps.apple.com/in/app/iqworld-display/id6748666233" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold underline hover:text-cyan-300">Apple App Store (iOS)</a> or <a href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold underline hover:text-cyan-300">Google Play Store (Android)</a> and experience unparalleled convenience and efficiency!</p>
+      
+      <div class="not-prose flex flex-wrap items-center gap-4 my-6">
+        <a href="https://apps.apple.com/in/app/iqworld-display/id6748666233" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105 hover:opacity-90">
+          <img src="${appStoreBadge}" alt="Download on the App Store" class="h-12 w-auto" style="margin: 0; border: none; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-200 hover:scale-105 hover:opacity-90">
+          <img src="${googlePlayBadge}" alt="Get it on Google Play" class="h-12 w-auto" style="margin: 0; border: none; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);" />
+        </a>
+      </div>
+
       <p>Check the FAQ's of How to Operate IQ World App.</p>
     `
   },

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/can logo.png';
+import appStoreBadge from '../assets/app-store-badge.svg';
+import googlePlayBadge from '../assets/google-play-badge.svg';
+import { APP_STORE_URL, PLAY_STORE_URL } from '../utils/smartRedirect';
 
 const Footer = () => {
   return (
@@ -10,11 +13,37 @@ const Footer = () => {
         {/* Top Section: Grid of Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 pb-24">
           
-          {/* Column 1: Logo */}
-          <div className="lg:col-span-1">
-            <Link to="/">
+          {/* Column 1: Logo & App Download */}
+          <div className="lg:col-span-1 flex flex-col justify-start">
+            <Link to="/" className="inline-block mb-6">
               <img src={logo} alt="CAN Logo" className="h-10 w-auto object-contain" />
             </Link>
+
+            <div className="flex flex-col gap-2.5">
+              <span className="text-xs uppercase tracking-wider text-gray-400 font-semibold">
+                IQ World App
+              </span>
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5">
+                <a 
+                  href={APP_STORE_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block transition-transform duration-200 hover:scale-105 hover:opacity-90 w-fit"
+                  aria-label="Download on the App Store"
+                >
+                  <img src={appStoreBadge} alt="Available on the App Store" className="h-10 w-auto rounded-lg shadow-sm" />
+                </a>
+                <a 
+                  href={PLAY_STORE_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block transition-transform duration-200 hover:scale-105 hover:opacity-90 w-fit"
+                  aria-label="Get it on Google Play"
+                >
+                  <img src={googlePlayBadge} alt="Get it on Google Play" className="h-10 w-auto rounded-lg shadow-sm" />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Column 2: Navigation */}
