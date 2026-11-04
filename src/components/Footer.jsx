@@ -66,7 +66,7 @@ const Footer = () => {
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-xs font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3.5 py-1 rounded-full flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-              BIS: R-XXXX0860
+              BIS: R-71040860
             </span>
             <span className="text-xs font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3.5 py-1 rounded-full flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>

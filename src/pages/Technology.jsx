@@ -186,7 +186,7 @@ const Technology = () => {
                  Resolution <span className="font-bold text-cyan-400">Redefined</span>
               </h3>
               <p className="text-gray-400 leading-relaxed text-base sm:text-lg font-light">
-                Elevate your viewing experience with IPS Panel's HD brilliance or dive into the future with 4K resolution (2160 - 3840 pixels) support, available in our 43" and above screen sizes. CAN Display ensures every detail is brought to life on your screen.
+                Elevate your viewing experience with IPS Panel's HD brilliance or dive into the future with 4K resolution (2160 × 3840 pixels) support, exclusively available in our 50" and above screen sizes. CAN Display ensures every detail is brought to life on your screen.
               </p>
             </motion.div>
             

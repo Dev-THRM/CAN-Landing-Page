@@ -449,16 +449,16 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                     <Cpu size={24} />
                   </span>
                   <div>
-                    <span className="text-xs uppercase font-mono tracking-widest text-blue-400">Operational Specifications</span>
-                    <h2 className="text-2xl sm:text-4xl font-light text-white">Technical Requirements</h2>
+                    <span className="text-xs uppercase font-mono tracking-widest text-blue-400">Official Catalog Specifications</span>
+                    <h2 className="text-2xl sm:text-4xl font-light text-white">Technical Requirements & Standards</h2>
                   </div>
                 </div>
 
                 <p className="text-sm sm:text-base text-gray-300 mb-8">
-                  Recommended network infrastructure, operating system environments, and power parameters for uninterrupted operation of CAN displays and the IQ World cloud platform.
+                  Official hardware parameters, connectivity interfaces, and operating infrastructure for CAN commercial digital displays and the IQ World cloud ecosystem, verified as per the LUMOCAST product catalog.
                 </p>
 
-                {/* Requirements & Details Table */}
+                {/* Mandatory Installation & Network Requirements Table */}
                 <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 bg-black/40">
                   <div className="px-6 py-4 bg-white/[0.04] border-b border-white/10 flex items-center justify-between">
                     <h4 className="text-xs sm:text-sm font-semibold text-white tracking-wider uppercase flex items-center gap-2">
@@ -501,60 +501,72 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                   </div>
                 </div>
 
+                {/* 4 Core Specification Cards as per Catalog */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                  {/* Card 1: Display Resolutions & Panel Standards */}
                   <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
                     <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                       <Monitor size={18} className="text-cyan-400" />
-                      Display Resolutions & Standards
+                      Display Resolutions & Panel Standards
                     </h4>
                     <ul className="space-y-2 text-xs text-gray-400">
-                      <li>• <strong>HD Standard:</strong> 768 × 1366 pixels (32" CAN, CANLit, CANVue 3201 — without wheels)</li>
-                      <li>• <strong>Full HD (FHD):</strong> 1080 × 1920 pixels (43" CAN Pro, CANLit Pro, CANVue Pro 4301 — with wheels)</li>
-                      <li>• <strong>4K Ultra HD:</strong> 2160 - 3840 pixels (50", 55", 65", 75", 86", 98" CAN models; CANVue 50", 55", 65", 75", 86" with wheels)</li>
-                      <li>• <strong>Aspect Ratio:</strong> 9:16 Portrait / 16:9 Landscape Native</li>
-                      <li>• <strong>Panel:</strong> Commercial A+ Grade IPS, 178°/178° viewing angle, 300 - 380 Nits</li>
-                      <li>• <strong>Manufacturing:</strong> Designed & Made in Bharat</li>
-                      <li>• <strong>BIS Certification:</strong> Bureau of Indian Standards Certified (Reg. No. R-XXXX0860)</li>
+                      <li>• <strong>HD Standard:</strong> 768 × 1366 pixels · 300 Nits brightness (32" CAN, CANLit, CANVue, CANMount, CAN H-Mount, CANWalk, CANNX 3201)</li>
+                      <li>• <strong>Full HD (FHD):</strong> 1080 × 1920 pixels · 350 Nits brightness (43" CAN Pro, CANLit Pro, CANVue Pro, CANMount Pro, CAN H-Mount Pro, CANNX Pro 4301; 24" CANNX 2401)</li>
+                      <li>• <strong>4K Ultra HD:</strong> 2160 × 3840 pixels · 380 Nits brightness (50", 55", 65", 75", 86", 98" models; CANVue 50", 55", 65", 75", 86" with wheels)</li>
+                      <li>• <strong>Desktop Formats:</strong> 1280 × 800 pixels · 10:16 aspect ratio (CANDesk 10.1", 13.3", 15.6" Non-Touch & Touch models)</li>
+                      <li>• <strong>Aspect Ratios:</strong> 9:16 Portrait Native / 16:9 Landscape Native (CANNX, CAN H-Mount)</li>
+                      <li>• <strong>Panel Grade & Optics:</strong> Commercial A+ Grade IPS Panel, 178°/178° ultra-wide viewing angle, 16.7M colors</li>
+                      <li>• <strong>Motion & Contrast:</strong> 60 Hz motion rate · 100000:1 static contrast ratio</li>
+                      <li>• <strong>Manufacturing & Safety:</strong> Researched, Developed & Manufactured in Bharat · BIS Certified (Reg. No. R-71040860)</li>
                     </ul>
                   </div>
 
+                  {/* Card 2: Connectivity, Ports & Hardware */}
                   <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
                     <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                       <Layers size={18} className="text-cyan-400" />
-                      Network & Connectivity
+                      Connectivity, Hardware & Ports
                     </h4>
                     <ul className="space-y-2 text-xs text-gray-400">
                       <li>• <strong>Wi-Fi Connectivity:</strong> Stable 4G internet connection with a minimum speed of 25 Mbps is required for using IQ World software.</li>
-                      <li>• <strong>Wi-Fi Bands:</strong> 2.4 GHz & 5.0 GHz 802.11 b/g/n dual-band wireless</li>
-                      <li>• <strong>LAN:</strong> RJ-45 Ethernet 10/100/1000 Mbps port</li>
-                      <li>• <strong>Cellular (Optional):</strong> 4G / 5G SIM card slot expansion module</li>
-                      <li>• <strong>Offline Caching:</strong> Integrated local storage continues playback during dropouts</li>
+                      <li>• <strong>Wireless Standards:</strong> 2.4 GHz & 5.0 GHz 802.11 b/g/n dual-band Wi-Fi integrated</li>
+                      <li>• <strong>Wired Ethernet:</strong> RJ-45 LAN port for ultra-reliable hardwired network connections</li>
+                      <li>• <strong>Cellular Option:</strong> Dedicated SIM card slot optional expansion module</li>
+                      <li>• <strong>Physical Interface Ports:</strong> 2 × USB ports (for offline pen drive playback & updates) · 1 × HDMI input</li>
+                      <li>• <strong>Memory & Processing:</strong> 2 GB / 3 GB high-performance commercial RAM · 16 GB / 32 GB internal ROM storage</li>
+                      <li>• <strong>Audio Output:</strong> Integrated 10W commercial speaker audio system</li>
                     </ul>
                   </div>
 
+                  {/* Card 3: Supported Media Formats & Content Delivery */}
                   <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
                     <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                       <RefreshCw size={18} className="text-cyan-400" />
-                      Supported Media Formats
+                      Supported Media Formats & Playback
                     </h4>
                     <ul className="space-y-2 text-xs text-gray-400">
-                      <li>• <strong>Video:</strong> MP4, AVI, MKV, MOV, H.264, H.265 (HEVC) up to 4K @ 60fps</li>
-                      <li>• <strong>Image:</strong> JPEG, PNG, WEBP, AVIF, GIF with alpha transparency</li>
-                      <li>• <strong>Documents & Web:</strong> PDF pagination, Web URLs (HTTP/HTTPS), YouTube streams</li>
-                      <li>• <strong>Audio:</strong> Dual 10W stereo built-in speakers (AAC / MP3 / WAV)</li>
+                      <li>• <strong>Video Codecs:</strong> MP4, AVI, MKV, MOV, H.264, H.265 (HEVC) up to 4K @ 60fps</li>
+                      <li>• <strong>Image Formats:</strong> JPEG, PNG, WEBP, AVIF, GIF with alpha transparency</li>
+                      <li>• <strong>Dynamic Web & Documents:</strong> Direct PDF upload, Web URLs (HTTP/HTTPS), live YouTube stream playback</li>
+                      <li>• <strong>Built-in Editor:</strong> In-built IQ Editor for text, image, and video content design</li>
+                      <li>• <strong>Display Effects:</strong> Continuous scrolling text ticker, intelligent multi-zone split screen layouts, and scheduled playlists</li>
+                      <li>• <strong>Offline Continuity:</strong> Integrated local storage & pen drive offline connectivity with split screen & scrolling text</li>
                     </ul>
                   </div>
 
+                  {/* Card 4: Operating System & Cloud Ecosystem */}
                   <div className="p-6 rounded-2xl bg-black/40 border border-white/10">
                     <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                       <Lock size={18} className="text-cyan-400" />
-                      Operating System & Software
+                      Operating System & Cloud Ecosystem
                     </h4>
                     <ul className="space-y-2 text-xs text-gray-400">
-                      <li>• <strong>Client Displays:</strong> CAN Signage OS (Android 11+ Commercial Core)</li>
-                      <li>• <strong>Management Console:</strong> Modern web browsers (Chrome, Edge, Safari, Firefox)</li>
-                      <li>• <strong>Mobile Companion App:</strong> Android (Google Play Store) and iOS (Apple App Store)</li>
-                      <li>• <strong>Desktop Client:</strong> Available for Windows 10/11 and macOS</li>
+                      <li>• <strong>Display OS:</strong> CAN Commercial Android OS with pre-installed IQ World Player core</li>
+                      <li>• <strong>Cloud Web Console:</strong> Centralized web-based display screen management at ds.iqtv.in</li>
+                      <li>• <strong>Mobile Companion App:</strong> Official IQ World application available on Google Play (Android) and App Store (iOS)</li>
+                      <li>• <strong>Desktop Management Client:</strong> Available for Windows 10/11 and macOS</li>
+                      <li>• <strong>Commercial Controls:</strong> Remote device power on/off, auto on/off scheduling, blue back mode, and auto color temperature</li>
+                      <li>• <strong>Security & Compliance:</strong> Multi-level OTP authentication while uploading new content · Multi-tenant device management</li>
                     </ul>
                   </div>
                 </div>
