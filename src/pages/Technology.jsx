@@ -8,7 +8,7 @@ import cantechno from '../assets/cantechno.jpg';
 import verticalImg from '../assets/vertical.png';
 import horizontalImg from '../assets/horizontal.png';
 import remote from '../assets/remote.jpg';
-import iqscreens from '../assets/iqscreens.jpg';
+import iqWorldShowcase from '../assets/IQ World Digital Signage Showcase.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -645,7 +645,7 @@ const Technology = () => {
               <div className="iq-img-container rounded-[40px] overflow-hidden border border-white/10 bg-black p-4 sm:p-8 shadow-[0_30px_100px_rgba(0,0,0,0.9)] transform-style-3d group">
                 <div className="absolute inset-0 bg-gradient-to-t from-fuchsia-900/20 via-transparent to-transparent pointer-events-none mix-blend-overlay z-10"></div>
                 <div className="anim-img w-full h-full rounded-[24px] overflow-hidden">
-                  <img src={iqscreens} alt="IQ World Dashboard" className="w-full h-auto object-cover shadow-2xl border border-white/5" />
+                  <img src={iqWorldShowcase} alt="IQ World Digital Signage Showcase" className="w-full h-auto object-cover shadow-2xl border border-white/5" />
                 </div>
                 
                 {/* Floating UI Elements Overlay */}

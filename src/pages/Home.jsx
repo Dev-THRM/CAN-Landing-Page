@@ -10,7 +10,7 @@ import kiosk from '../assets/kiosk.jpg';
 import canLogo from '../assets/can logo.png';
 import ribbonImg from '../assets/ribbon.jpg';
 import firstImg from '../assets/first-img.avif';
-import secondImg from '../assets/second-img.avif';
+import iqWorldShowcase from '../assets/IQ World Digital Signage Showcase.png';
 import canLit from '../assets/canlit.png';
 import { Link } from 'react-router-dom';
 import canMount from '../assets/canmount.png';
@@ -395,8 +395,8 @@ const Home = () => {
                     <div className="absolute inset-0 bg-radial from-blue-500/20 via-transparent to-transparent blur-3xl pointer-events-none"></div>
                     <div className="relative group/img overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-black/40 p-3 sm:p-5 w-full flex items-center justify-center shadow-2xl">
                       <img 
-                        src={secondImg} 
-                        alt="IQ World Control App Interface" 
+                        src={iqWorldShowcase} 
+                        alt="IQ World Digital Signage Showcase" 
                         className="w-full h-auto max-h-[320px] sm:max-h-[380px] md:max-h-[420px] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)] group-hover/img:scale-105 transition-transform duration-700" 
                       />
                       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 px-3.5 py-1.5 rounded-full bg-cyan-950/80 backdrop-blur-md border border-cyan-500/30 text-[10px] sm:text-xs font-mono text-cyan-300 flex items-center gap-2 shadow-xl pointer-events-none">

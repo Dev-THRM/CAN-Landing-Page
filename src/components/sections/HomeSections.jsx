@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, 
 import { ArrowRight, LayoutGrid, Zap, Leaf, Maximize } from 'lucide-react';
 import standeeExploded from '../../assets/standee_exploded.jpg';
 import heroImg from '../../assets/hero.png';
+import iqWorldShowcase from '../../assets/IQ World Digital Signage Showcase.png';
 
 // Reusable animated text component
 const FadeInText = ({ children, delay = 0, className = "", direction = "up" }) => {
@@ -282,7 +283,7 @@ export const ControlCenterSection = () => {
                  viewport={{ once: true, margin: "-100px" }}
                >
                   <div className="laptop-screen">
-                     <img src="/fluid_screen.jpg" alt="IQ World Dashboard" className="screen-content" />
+                     <img src={iqWorldShowcase} alt="IQ World Dashboard" className="screen-content" />
                      
                      <motion.div 
                         className="dashboard-ui-overlay"
@@ -315,7 +316,7 @@ export const ControlCenterSection = () => {
                >
                   <div className="phone-screen">
                     <div className="notch"></div>
-                    <img src="/fluid_screen.jpg" alt="Mobile App" className="screen-content" />
+                    <img src={iqWorldShowcase} alt="Mobile App" className="screen-content" />
                     
                     <motion.div 
                       className="mobile-ui-overlay"

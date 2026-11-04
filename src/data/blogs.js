@@ -1,4 +1,4 @@
-import blogIqWorld from '../assets/blog-iq-world.jpg';
+import iqWorldShowcase from '../assets/IQ World Digital Signage Showcase.png';
 import blogDesktopDisplay from '../assets/blog-desktop-display.jpg';
 import blogMarketingDisplay from '../assets/blog-marketing-display.jpg';
 import blog1SecImg from '../assets/blogs/blog1-sec-img.jpg';
@@ -17,7 +17,7 @@ export const blogPosts = [
     id: 1,
     slug: 'iq-world-india-ka-iq',
     title: 'Empower Your Digital Signage Experience with IQ World India Ka IQ',
-    image: blog1Prim,
+    image: iqWorldShowcase,
     date: 'Mar 7, 2025',
     author: 'CAN Team',
     content: `
@@ -54,7 +54,7 @@ export const blogPosts = [
         IQ World India Ka IQ Application redefines digital screen management by offering a <strong>user-friendly, feature-rich, and secure</strong> solution with Basic & Pro options. For 1 year, you will get the software complementary but only the basic version, pro version is also available with more advanced features. Designed for <strong>businesses, advertisers, educational institutions, and enterprises</strong>, this app simplifies digital content control, enhances engagement, and optimizes operations. Read our <a href="/iq-world-terms" class="text-cyan-400 font-semibold underline hover:text-cyan-300">IQ World T&C</a> for full licensing conditions.
       </p>
       
-      <img src="${blog1SecImg}" alt="IQ World" class="w-full h-auto rounded-2xl border border-white/10 my-8 shadow-2xl" />
+      <img src="${iqWorldShowcase}" alt="IQ World Digital Signage Showcase" class="w-full h-auto rounded-2xl border border-white/10 my-8 shadow-2xl" />
       
       <p>Are you ready to take your screen management experience to the next level? <a href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold underline hover:text-cyan-300">Download the IQ World India Ka IQ Application today</a> and experience unparalleled convenience and efficiency!</p>
       <p>Check the FAQ's of How to Operate IQ World App.</p>
@@ -177,7 +177,7 @@ export const blogPosts = [
 
       <h2>CAN Digital Display Products: A Closer Look</h2>
       <p>
-        <strong>CAN Digital Signage</strong> offers a range of high-definition screens designed to meet diverse business needs. The CAN product lineup includes standard <strong>768p screens in 32"</strong>, <strong>Full HD 1080p screens in 43"</strong>, as well as <strong>4K (2160 - 3840 pixels) screens in 43" and above sizes</strong>. These displays feature IPS panels with anti-glare toughened glass and a wide <strong>178-degree viewing angle</strong>, ensuring clear and crisp images from virtually any perspective.
+        <strong>CAN Digital Signage</strong> offers a range of high-definition screens designed to meet diverse business needs. The CAN product lineup includes standard <strong>768p screens in 32"</strong>, <strong>Full HD 1080p screens in 43"</strong>, as well as <strong>4K (2160 × 3840 pixels) screens in 50" and above sizes</strong>. These displays feature IPS panels with anti-glare toughened glass and a wide <strong>178-degree viewing angle</strong>, ensuring clear and crisp images from virtually any perspective.
       </p>
 
       <h2>Conclusion: The Impact of Digital Displays on Marketing</h2>
