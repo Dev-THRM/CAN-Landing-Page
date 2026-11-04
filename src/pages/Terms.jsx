@@ -517,7 +517,7 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                       <li>• <strong>Aspect Ratios:</strong> 9:16 Portrait Native / 16:9 Landscape Native (CANNX, CAN H-Mount)</li>
                       <li>• <strong>Panel Grade & Optics:</strong> Commercial A+ Grade IPS Panel, 178°/178° ultra-wide viewing angle, 16.7M colors</li>
                       <li>• <strong>Motion & Contrast:</strong> 60 Hz motion rate · 100000:1 static contrast ratio</li>
-                      <li>• <strong>Manufacturing & Safety:</strong> Researched, Developed & Manufactured in Bharat · BIS Certified (Reg. No. R-71040860)</li>
+                      <li>• <strong>Manufacturing & Safety:</strong> Researched, Developed & Manufactured in Bharat · BIS Certified (Reg. No. R-XXXX0860)</li>
                     </ul>
                   </div>
 

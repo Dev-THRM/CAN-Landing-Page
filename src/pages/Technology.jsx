@@ -234,7 +234,7 @@ const Technology = () => {
             </h2>
             
             <p className="anim-text text-base sm:text-lg text-gray-300 leading-relaxed font-light mb-8 max-w-2xl">
-              Engineered for seamless commercial versatility. Deploy CAN displays horizontally for high-impact menu boards, dashboards, and video walls — or vertically for elegant floor standees, retail showcases, and directory kiosks.
+              Engineered for seamless commercial versatility. Deploy CAN displays horizontally for high-impact corporate displays, dashboards, and video walls — or vertically for elegant floor standees, retail showcases, and directory kiosks.
             </p>
 
           </div>
@@ -381,14 +381,14 @@ const Technology = () => {
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping"></span>
                       LIVE CAN DISPLAY
                     </span>
-                    <span className="text-gray-500 font-mono">WALL MOUNT / MENU BOARD</span>
+                    <span className="text-gray-500 font-mono">WALL MOUNT / OFFICE DISPLAY</span>
                   </div>
 
-                  {/* 16:9 Aspect Viewport - 100% of the screen, pizza menu, CAN logo, and 178° viewing angle callout visible */}
+                  {/* 16:9 Aspect Viewport - 100% of the screen, office welcome directory, CAN logo, and 178° viewing angle callout visible */}
                   <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black shadow-inner border border-white/5">
                     <img
                       src={horizontalImg}
-                      alt="CAN Horizontal Landscape Menu Display with 178 degree wide viewing angle"
+                      alt="CAN Horizontal Landscape Corporate Reception Display with 178 degree wide viewing angle"
                       className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 block"
                     />
 
@@ -399,7 +399,7 @@ const Technology = () => {
                     <div className="absolute top-3 left-3">
                       <span className="px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-white tracking-wide shadow-lg flex items-center gap-1.5">
                         <Sparkles size={11} className="text-blue-400" />
-                        Restaurant Digital Menu
+                        Corporate Reception Setup
                       </span>
                     </div>
 
@@ -417,7 +417,7 @@ const Technology = () => {
                 {/* Use Case & Features Breakdown */}
                 <div className="mt-auto space-y-4">
                   <p className="text-sm text-gray-300 leading-relaxed font-light">
-                    Built for expansive horizontal visibility in fast-casual restaurants, bars, meeting rooms, and command centers. Features an ultra-wide 178° viewing angle so menus are crystal clear from any vantage point.
+                    Built for expansive horizontal visibility in corporate receptions, executive boardrooms, and command centers. Features an ultra-wide 178° viewing angle so directories, dashboards, and welcome notices are crystal clear from any vantage point.
                   </p>
 
                   <div className="grid grid-cols-2 gap-2.5 pt-2">
@@ -436,7 +436,7 @@ const Technology = () => {
                     <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                       <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider mb-1">Content Format</div>
                       <div className="text-xs font-medium text-white flex items-center gap-1.5">
-                        <Check size={12} className="text-blue-400" /> Dynamic Menu Boards
+                        <Check size={12} className="text-blue-400" /> Corporate Directory & Dashboards
                       </div>
                     </div>
                     <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">

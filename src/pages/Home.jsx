@@ -344,7 +344,7 @@ const Home = () => {
                     </p>
 
                     <div className="flex flex-wrap items-center gap-2 mb-6">
-                      {['A+ Grade IPS Panel', 'Anti-Glare Toughened Glass', '178° Vision Angle', '1-Yr Onsite Warranty', 'Made in Bharat', 'BIS: R-71040860'].map((pill, idx) => (
+                      {['A+ Grade IPS Panel', 'Anti-Glare Toughened Glass', '178° Vision Angle', '1-Yr Onsite Warranty', 'Made in Bharat', 'BIS: R-XXXX0860'].map((pill, idx) => (
                         <span key={idx} className="text-[10px] sm:text-[11px] font-medium text-gray-400 bg-white/[0.04] border border-white/10 px-3 py-1 rounded-full">
                           {pill}
                         </span>
