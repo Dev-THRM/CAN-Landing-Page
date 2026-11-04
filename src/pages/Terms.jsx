@@ -18,10 +18,12 @@ import {
   AlertTriangle,
   Zap
 } from 'lucide-react';
+import { useSmartAppUrl } from '../utils/smartRedirect';
 
 const Terms = ({ defaultTab = 'iq-world' }) => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(defaultTab);
+  const { appUrl: smartAppUrl, isApple } = useSmartAppUrl();
 
   useEffect(() => {
     // Check URL search params (e.g. ?tab=warranty) or props
@@ -141,12 +143,13 @@ const Terms = ({ defaultTab = 'iq-world' }) => {
                     </p>
                   </div>
                   <a 
-                    href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN"
+                    href={smartAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500 hover:text-black transition-all duration-300 w-fit"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500 hover:text-black transition-all duration-300 w-fit cursor-pointer"
+                    title={isApple ? "Download on Apple App Store" : "Download on Google Play Store"}
                   >
-                    <span>Get IQ World App</span>
+                    <span>{isApple ? "Get IQ World (iOS)" : "Get IQ World App"}</span>
                     <ArrowRight size={14} />
                   </a>
                 </div>

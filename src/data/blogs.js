@@ -57,7 +57,7 @@ export const blogPosts = [
       
       <img src="${iqWorldShowcase}" alt="IQ World Digital Signage Showcase" class="w-full h-auto rounded-2xl border border-white/10 my-8 shadow-2xl" />
       
-      <p>Are you ready to take your screen management experience to the next level? <a href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold underline hover:text-cyan-300">Download the IQ World India Ka IQ Application today</a> and experience unparalleled convenience and efficiency!</p>
+      <p>Are you ready to take your screen management experience to the next level? Download the IQ World India Ka IQ Application today on the <a href="https://apps.apple.com/in/app/iqworld-display/id6748666233" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold underline hover:text-cyan-300">Apple App Store (iOS)</a> or <a href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold underline hover:text-cyan-300">Google Play Store (Android)</a> and experience unparalleled convenience and efficiency!</p>
       <p>Check the FAQ's of How to Operate IQ World App.</p>
     `
   },

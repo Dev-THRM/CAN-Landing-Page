@@ -4,6 +4,7 @@ import { ArrowRight, LayoutGrid, Zap, Leaf, Maximize } from 'lucide-react';
 import standeeExploded from '../../assets/standee_exploded.jpg';
 import heroImg from '../../assets/hero.png';
 import iqWorldShowcase from '../../assets/IQ World Digital Signage Showcase.png';
+import { useSmartAppUrl } from '../../utils/smartRedirect';
 
 // Reusable animated text component
 const FadeInText = ({ children, delay = 0, className = "", direction = "up" }) => {
@@ -265,6 +266,7 @@ export const ResolutionSection = () => {
 };
 
 export const ControlCenterSection = () => {
+  const { appUrl: smartAppUrl } = useSmartAppUrl();
   return (
     <section className="section-light control-center-section relative overflow-hidden">
       {/* Dynamic Background */}
@@ -369,7 +371,7 @@ export const ControlCenterSection = () => {
 
           <FadeInText delay={0.5}>
             <motion.a 
-              href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN"
+              href={smartAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-download inline-flex items-center gap-2"

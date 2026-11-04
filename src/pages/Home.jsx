@@ -19,6 +19,7 @@ import canvueExplodedVideo from '../assets/canvue-exploded.mp4';
 import canvueExplodedPoster from '../assets/canvue-exploded-poster.jpg';
 import { blogPosts } from '../data/blogs';
 import HeroReference from '../components/HeroReference';
+import { useSmartAppUrl } from '../utils/smartRedirect';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,6 +84,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState(null);
   const [activeFeatureTab, setActiveFeatureTab] = useState(0);
+  const { appUrl: smartAppUrl, isApple } = useSmartAppUrl();
   const panelsRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -450,12 +452,13 @@ const Home = () => {
 
                     <div className="flex flex-wrap items-center gap-4">
                       <a 
-                        href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN" 
+                        href={smartAppUrl} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] group w-fit"
+                        className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-white/10 hover:bg-cyan-500 hover:text-black border border-white/15 hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] group w-fit cursor-pointer"
+                        title={isApple ? "Download on Apple App Store" : "Download on Google Play Store"}
                       >
-                        <span>GET IQ WORLD APP</span>
+                        <span>{isApple ? "GET IQ WORLD (IOS)" : "GET IQ WORLD APP"}</span>
                         <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </a>
                       <Link 

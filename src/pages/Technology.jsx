@@ -9,6 +9,7 @@ import verticalImg from '../assets/vertical.png';
 import horizontalImg from '../assets/horizontal.png';
 import remote from '../assets/remote.jpg';
 import iqWorldShowcase from '../assets/IQ World Digital Signage Showcase.png';
+import { useSmartAppUrl } from '../utils/smartRedirect';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,7 @@ const Technology = () => {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [fullscreenImage, setFullscreenImage] = useState(null);
+  const { appUrl: smartAppUrl, isApple } = useSmartAppUrl();
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -620,12 +622,13 @@ const Technology = () => {
                 </p>
                 <div className="anim-text flex flex-wrap items-center gap-4">
                   <a 
-                    href="https://play.google.com/store/apps/details?id=com.iqw.iqworld_mobile&hl=en_IN"
+                    href={smartAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-fuchsia-600/20 hover:bg-fuchsia-500 hover:text-white border border-fuchsia-500/30 hover:border-fuchsia-400 transition-all duration-300 shadow-[0_0_20px_rgba(217,70,239,0.2)]"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase text-white bg-fuchsia-600/20 hover:bg-fuchsia-500 hover:text-white border border-fuchsia-500/30 hover:border-fuchsia-400 transition-all duration-300 shadow-[0_0_20px_rgba(217,70,239,0.2)] cursor-pointer"
+                    title={isApple ? "Download on Apple App Store" : "Download on Google Play Store"}
                   >
-                    <span>Get IQ World App</span>
+                    <span>{isApple ? "Get IQ World (iOS)" : "Get IQ World App"}</span>
                     <ArrowRight size={14} />
                   </a>
                   <Link
